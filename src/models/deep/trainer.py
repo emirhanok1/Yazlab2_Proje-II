@@ -1,0 +1,2 @@
+"""Ortak eğitim döngüsü."""
+pass

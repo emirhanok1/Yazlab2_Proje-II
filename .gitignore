@@ -1,0 +1,47 @@
+# 1. Python & Ortam
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+ENV/
+
+# 2. IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 3. Jupyter
+.ipynb_checkpoints/
+
+# 4. Model Ağırlıkları (Büyük/Üretilen Dosyalar)
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pkl
+*.joblib
+
+# 5. Deney Çıktıları (SADECE results/ Altındakiler)
+results/**/*.png
+results/**/*.jpg
+results/**/*.pdf
+results/**/*.svg
+results/**/*.log
+
+# results/ klasör yapısının korunması için istisna
+!results/.gitkeep
+
+# 6. VERİ KLASÖRÜ
+# data/ dizini ve içindeki .csv'ler bilerek bırakılmıştır (commitlenecektir).
+# Diğer dokümanlar / assetler de default olarak commitlenir.

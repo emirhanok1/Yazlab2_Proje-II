@@ -1,0 +1,71 @@
+seeds:
+- 42
+- 123
+- 2026
+- 7
+- 999
+training:
+  epochs: 50
+  batch_size: 32
+  early_stopping_patience: 5
+  learning_rate: 0.001
+automata:
+  window_size: 4
+  alphabet_size: 3
+  smoothing_k: 0.1
+  paa_segments: 4
+  anomaly_percentile: 5
+automata_param_sweep:
+  window_size:
+  - 3
+  - 4
+  - 5
+  - 6
+  alphabet_size:
+  - 3
+  - 4
+  - 5
+  - 6
+preprocessing:
+  pca_components: 1
+  normalization: standard
+split:
+  skab: groupkfold
+  skab_n_folds: 5
+  batadal:
+    train: 0.6
+    val: 0.2
+    test: 0.2
+windowing:
+  stride: 1
+  label_strategy: last_step
+scenarios:
+- original
+- gaussian_noise
+- unseen
+noise:
+  type: gaussian
+  std: 0.1
+datasets:
+  skab:
+    valve1: data/skab/valve1
+    valve2: data/skab/valve2
+    sep: ;
+    decimal: ','
+    target: anomaly
+    drop_from_input:
+    - datetime
+    - anomaly
+    - changepoint
+    - source_group
+    - source_file
+  batadal:
+    path: data/batadal/BATADAL_dataset04.csv
+    target: ATT_FLAG
+    target_map:
+      -999: 0
+      1: 1
+    time_col: DATETIME
+    strip_column_names: true
+paths:
+  results: results
