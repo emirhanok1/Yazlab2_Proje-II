@@ -69,3 +69,19 @@ datasets:
     strip_column_names: true
 paths:
   results: results
+models:
+  lstm:
+    hidden_size: 64
+    num_layers: 1
+    dropout: 0.2
+  gru:
+    hidden_size: 64
+    num_layers: 1
+    dropout: 0.2
+  cnn1d:
+    channels:
+    - 32
+    - 64
+    kernel_size: 3
+    dropout: 0.2
+  use_pos_weight: true
