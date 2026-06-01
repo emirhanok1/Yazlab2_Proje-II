@@ -1,0 +1,49 @@
+## 0. GIT GÜVENLİĞİ (EN KRİTİK — ASLA İHLAL ETME)
+- .git klasörüne ASLA dokunma: silme, taşıma, bozma, "git init" ile sıfırlama YOK.
+- git push, git commit, git reset --hard, git rebase, force push YAPMA. Bunları kullanıcı GitHub Desktop'tan kendisi yapar.
+- Git ile ilgili sorun görürsen: DURUMU RAPORLA, müdahale ETME, kullanıcının onayını bekle.
+- Commit mesajı önerebilirsin ama commit'i sen atma.
+
+## 1. ÇALIŞMA AKIŞI
+- Önce PLAN sun, "Onaylıyorum" onayını bekle, sonra kodla. Onaysız kod yazma/çalıştırma.
+- Her görev sonunda yaptıklarını ve test çıktısını Türkçe raporla.
+- Geçici test dosyalarını (scratch/ vb.) repoya dahil etme; iş bitince temizle.
+
+## 2. KONFİGÜRASYON — HARD-CODE YASAK
+- Tüm parametreler config/config.yaml'dan okunur. Hiçbir sayı/yol/eşik koda gömülmez.
+- Yeni parametre gerekiyorsa önce config.yaml'a ekle, sonra koddan oku.
+- Seed'ler config'den (src/utils/seed.py ile tekrarlanabilirlik).
+
+## 3. VERİ SIZINTISI (DATA LEAKAGE) — ZORUNLU
+- Scaler, PCA, SAX breakpoint'leri, otomata geçiş olasılıkları YALNIZCA train'den fit edilir.
+- Val/test sadece transform edilir; fit'i asla etkilemez. Doğrulayan assert/test ekle.
+- SKAB split: StratifiedGroupKFold, grup = source_file (aynı csv hem train hem test'te olamaz).
+- BATADAL split: kronolojik %60/20/20 (shuffle YOK).
+
+## 4. MİMARİ KARARLAR (DEĞİŞMEZ)
+- SAX kütüphanesi: pyts, strategy='quantile'. Breakpoint'ler train'den öğrenilip donar.
+- window→label: last_step (pencerenin SON satırının etiketi). DL ve otomata için AYNI kural.
+- PCA SADECE otomata için (PC1). DL modelleri çok boyutlu veriyi (SKAB 8, BATADAL 43) olduğu gibi kullanır — PCA UYGULAMA.
+- Path probability LOG-SPACE'te (log toplamı, çarpım değil — underflow engelle), sonra uzunlukla normalize (per-transition avg log-likelihood).
+- Smoothing: Add-k (Lidstone), k = config smoothing_k. Add-k sonrası geçiş matrisinde HİÇ sıfır olmamalı.
+- Anomali eşiği: train normalize path-prob dağılımının alt percentile'ı (config'den).
+
+## 5. VERİ SETLERİ
+- SKAB: valve1(16)+valve2(4)=20 csv concat (sep=';', decimal=','). source_group+source_file eklenir (girdi değil). Hedef anomaly(0/1), girdi 8 sensör.
+- BATADAL: BATADAL_dataset04.csv tek dosya. Tüm sütun isimlerine .str.strip(). ATT_FLAG: -999→0, 1→1 (imbalance ~%5). DATETIME girdiye dahil değil. Girdi 43 değişken.
+- İki veri seti birbirine KARIŞTIRILMAZ (sadece cross-dataset deneyinde çapraz test).
+- EK belgedeki SWAT/WADI bize ait DEĞİL — tablolarda sadece SKAB+BATADAL.
+
+## 6. KOD KALİTESİ
+- Modüler yapı (src/data, models/deep, models/automata, explain, experiments, eval, utils). Docstring'ler.
+- sklearn benzeri arayüz (fit/transform/predict).
+- Imbalance: BATADAL'da pos_weight/stratify. F1 esas metrik, accuracy yanıltıcı.
+- Model her şeye tek sınıf diyorsa (dejenere) F1 yanıltıcı — tahmin dağılımını da raporla.
+
+## 7. RAPORLAMA & DİL
+- Tüm açıklama/rapor/README Türkçe, akademik ton.
+- Metrikler: Accuracy/Precision/Recall/F1 + runtime. İstatistik: Wilcoxon+McNemar (zorunlu), p-değeri+yorum.
+- Görseller results/figures/ altına.
+
+## 8. HEDEF
+- Rubrikteki 100 puanın tamamı. Ek puan analizleri ancak çekirdek bitince ve kullanıcı isterse.
