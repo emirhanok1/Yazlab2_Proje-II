@@ -1,0 +1,119 @@
+============================================================================
+  ISTATISTIKSEL ANLAMLILIK TESTLERI RAPORU
+  Wilcoxon Signed-Rank Testi + McNemar Testi
+============================================================================
+
+  Anlamlilik esigi (alpha) : 0.05
+  Wilcoxon senaryolari     : original
+  Minimum n uyari esigi    : 6
+
+============================================================================
+  WILCOXON SIGNED-RANK TESTI — SKAB
+============================================================================
+
+  Eslestirme: (seed, fold) bazli, n=25 (5 seed x 5 fold)
+
+  Cift                     n  Mean-F1-A  Mean-F1-B  Iyi Model       p-degeri   Anlamli?  Yorum
+  ----------------------------------------------------------------------------
+  lstm vs gru             25     0.8445     0.8468  gru             0.352520      Hayir  Anlamli fark yok (|dF1|=0.002)
+  lstm vs cnn1d           25     0.8445     0.8450  cnn1d           1.000000      Hayir  Anlamli fark yok (|dF1|=0.000)
+  lstm vs automata        25     0.8445     0.5277  lstm            0.000000   EVET ***  Guclu fark (|dF1|=0.317)
+  gru vs cnn1d            25     0.8468     0.8450  gru             0.672075      Hayir  Anlamli fark yok (|dF1|=0.002)
+  gru vs automata         25     0.8468     0.5277  gru             0.000000   EVET ***  Guclu fark (|dF1|=0.319)
+  cnn1d vs automata       25     0.8450     0.5277  cnn1d           0.000000   EVET ***  Guclu fark (|dF1|=0.317)
+
+============================================================================
+  WILCOXON SIGNED-RANK TESTI — BATADAL
+============================================================================
+
+  Eslestirme: seed bazli, n=5  *** KUCUK ORNEKLEM - DIKKATLI YORUMLA ***
+
+  Cift                     n  Mean-F1-A  Mean-F1-B  Iyi Model       p-degeri   Anlamli?  Yorum
+  ----------------------------------------------------------------------------
+  lstm vs gru              5     0.0317     0.1857  gru             0.125000      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+  lstm vs cnn1d            5     0.0317     0.0211  lstm            0.062500      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+  lstm vs automata         5     0.0317     0.0429  automata        0.437500      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+  gru vs cnn1d             5     0.1857     0.0211  gru             0.062500      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+  gru vs automata          5     0.1857     0.0429  gru             0.625000      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+  cnn1d vs automata        5     0.0211     0.0429  automata        0.062500      Hayir  n kucuk (5), dikkatli yorumla
+    [!] UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+
+============================================================================
+  McNEMAR TESTI (YAKLASIK) — SKAB
+============================================================================
+
+  [!] SINIRLILIK: Bireysel tahmin vektoru mevcut olmadigi icin
+      konfuzyon matrisi precision/recall/distribution'dan
+      rekonstrükte edilmistir. Sonuclar gosterge niteligindedir.
+
+  Cift                    A-dogru   B-dogru    p-degeri   Anlamli?
+  ----------------------------------------------------------------------------
+  lstm vs gru                   2         4    0.683091      Hayir
+  lstm vs cnn1d                 5         5    1.000000      Hayir
+  lstm vs automata             25         0    0.000002   EVET ***
+  gru vs cnn1d                  7         3    0.342782      Hayir
+  gru vs automata              25         0    0.000002   EVET ***
+  cnn1d vs automata            25         0    0.000002   EVET ***
+
+============================================================================
+  McNEMAR TESTI (YAKLASIK) — BATADAL
+============================================================================
+
+  [!] SINIRLILIK: Bireysel tahmin vektoru mevcut olmadigi icin
+      konfuzyon matrisi precision/recall/distribution'dan
+      rekonstrükte edilmistir. Sonuclar gosterge niteligindedir.
+
+  Cift                    A-dogru   B-dogru    p-degeri   Anlamli?
+  ----------------------------------------------------------------------------
+  lstm vs gru                   1         3    0.617075      Hayir
+  lstm vs cnn1d                 0         5    0.073638      Hayir
+  lstm vs automata              0         5    0.073638      Hayir
+  gru vs cnn1d                  1         4    0.371093      Hayir
+  gru vs automata               0         5    0.073638      Hayir
+  cnn1d vs automata             1         4    0.371093      Hayir
+
+============================================================================
+  ANA KARSILASTIRMA: DL MODELLERI vs AUTOMATA
+============================================================================
+
+  Bu proje, klasik otomata tabanli anomali tespitini modern derin
+  ogrenme modelleriyle karsilastirmaktadir. Asagida bu ciftlerin
+  istatistiksel analizi ozetlenmektedir.
+
+  [ SKAB ]
+    lstm     vs automata : p=0.0000  => ISTATISTIKSEL OLARAK ANLAMLI (p<0.05)
+      F1 farki: lstm=0.8445 vs automata=0.5277  (fark=0.3168)
+    gru      vs automata : p=0.0000  => ISTATISTIKSEL OLARAK ANLAMLI (p<0.05)
+      F1 farki: gru=0.8468 vs automata=0.5277  (fark=0.3191)
+    cnn1d    vs automata : p=0.0000  => ISTATISTIKSEL OLARAK ANLAMLI (p<0.05)
+      F1 farki: cnn1d=0.8450 vs automata=0.5277  (fark=0.3173)
+
+  [ BATADAL ]
+    lstm     vs automata : p=0.4375  => Anlamli degil (p>=0.05)
+      F1 farki: lstm=0.0317 vs automata=0.0429  (fark=0.0111)
+    gru      vs automata : p=0.6250  => Anlamli degil (p>=0.05)
+      F1 farki: gru=0.1857 vs automata=0.0429  (fark=0.1428)
+    cnn1d    vs automata : p=0.0625  => Anlamli degil (p>=0.05)
+      F1 farki: cnn1d=0.0211 vs automata=0.0429  (fark=0.0217)
+
+============================================================================
+  GENEL YORUM
+============================================================================
+
+  SKAB (n=25 (5 seed × 5 fold)): DL modelleri (LSTM/GRU/CNN1D) ile Automata
+  arasindaki F1 farki TUM ciftlerde istatistiksel olarak anlamlidir
+  (p<0.05). DL modelleri SKAB uzerinde belirgin sekilde
+  daha iyi performans gostermektedir.
+
+  BATADAL (n=5 (dikkat: kucuk orneklem)): Hicbir cift anlamli fark gostermemistir.
+  Bu, hem DL hem Automata modellerinin BATADAL uzerinde dusuk
+  F1 skoru (tum modeller ~0.03-0.19) nedeniyle birbirinden
+  istatistiksel olarak ayirt edilememesiyle aciklanabilir.
+  Ayrica kucuk orneklem (n=5) test gucunu dusurtmektedir.
+
+============================================================================

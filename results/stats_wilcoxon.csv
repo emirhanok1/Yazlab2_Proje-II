@@ -1,0 +1,13 @@
+dataset,scenario,model_a,model_b,n_samples,mean_f1_a,mean_f1_b,better_model,statistic,p_value,alpha,significant,warning
+SKAB,original,lstm,gru,25,0.844495,0.846763,gru,127.0000,0.352520,0.05,False,
+SKAB,original,lstm,cnn1d,25,0.844495,0.844984,cnn1d,162.0000,1.000000,0.05,False,
+SKAB,original,lstm,automata,25,0.844495,0.527703,lstm,0.0000,0.000000,0.05,True,
+SKAB,original,gru,cnn1d,25,0.846763,0.844984,gru,146.0000,0.672075,0.05,False,
+SKAB,original,gru,automata,25,0.846763,0.527703,gru,0.0000,0.000000,0.05,True,
+SKAB,original,cnn1d,automata,25,0.844984,0.527703,cnn1d,0.0000,0.000000,0.05,True,
+BATADAL,original,lstm,gru,5,0.031745,0.185681,gru,1.0000,0.125000,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+BATADAL,original,lstm,cnn1d,5,0.031745,0.021130,lstm,0.0000,0.062500,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+BATADAL,original,lstm,automata,5,0.031745,0.042857,automata,4.0000,0.437500,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+BATADAL,original,gru,cnn1d,5,0.185681,0.021130,gru,0.0000,0.062500,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+BATADAL,original,gru,automata,5,0.185681,0.042857,gru,5.0000,0.625000,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.
+BATADAL,original,cnn1d,automata,5,0.021130,0.042857,automata,0.0000,0.062500,0.05,False,UYARI: Örneklem sayısı n=5 < 6. Wilcoxon testi güvenilirliği düşük. Dikkatli yorumlayın.

@@ -86,5 +86,14 @@ models:
     kernel_size: 3
     dropout: 0.2
   use_pos_weight: true
+stats:
+  alpha: 0.05
+  min_n_warning: 6
+  scenarios_for_wilcoxon:
+    - original
+  output_wilcoxon_csv: results/stats_wilcoxon.csv
+  output_mcnemar_csv: results/stats_mcnemar.csv
+  output_report: results/stats_report.txt
+
 explain:
   confidence_high_threshold: 0.5
