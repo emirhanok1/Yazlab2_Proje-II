@@ -1,50 +1,54 @@
 """
-paa_sax.py — pyts PAA + SAX (quantile strategy) islemi.
+paa_sax.py — Sliding-window + quantile-based SAX dönüşümü.
+
+pyts 0.13.0 NOT: pyts.approximation.SymbolicAggregateApproximation stateless
+çalışır — fit() hiçbir şey kaydetmez, transform() her seferinde breakpoint'leri
+yeniden hesaplar. Bu, projemizin "train'den öğren, dondur" kuralıyla uyumsuz.
+
+ÇÖZÜM: Breakpoint'leri doğrudan np.percentile ile train sliding-window
+matrisinden hesaplayıp _breakpoints attribute'unda saklıyoruz.
+transform() bu donmuş breakpoint'lerle np.digitize yaparak sembolleştirir.
+pyts'in SAX sınıfı artık KULLANILMIYOR — breakpoint hesabı saf NumPy.
 
 Mimari:
-  1. Sinyal sliding window ile (n_windows, paa_segments) matrisine donusturulur.
-     Her satir = paa_segments zamanli bir pencere.
-  2. pyts PiecewiseAggregateApproximation:
-       (n_windows, paa_segments) -> (n_windows, paa_out) [paa_out <= paa_segments]
-     Burada paa_out = n_sax_bins (sembol sayisi, varsayilan paa_segments).
-  3. pyts SymbolicAggregateApproximation(strategy='quantile'):
-       fit()       -> train pencerelerinden quantile breakpoint'leri ogren -> DONDUR
-       transform() -> donmus breakpoint'lerle sembolize et
-
-  Son cikti: (n_windows,) uzunlugunda string SAX sembol listesi.
-  Her eleman tek bir SAX karakteridir ('a', 'b', 'c', ...).
-  n_windows = N - paa_segments + 1.
+  1. Sinyal sliding window ile (n_windows, paa_segments) matrisine dönüştürülür.
+  2. fit():  Train matrisinin TÜM elemanları üzerinden quantile breakpoint'ler
+             hesaplanır ve dondurulur.
+  3. transform(): Donmuş breakpoint'lerle her değeri bin'e atar, karşılık gelen
+             alfabe harfine çevirir. Her pencerenin son sembolü alınır (last-step).
 
 Leakage garantisi:
-  - _sax.fit() YALNIZCA PAASAXTransformer.fit() icinde cagrilir.
-  - PAASAXTransformer.transform() icinde SADECE _sax.transform() cagrilir.
-  - fit() oncesi transform() cagrilirsa RuntimeError firlatin.
+  - _breakpoints yalnızca fit() içinde atanır.
+  - transform() breakpoint'leri asla değiştirmez.
+  - fit() öncesi transform() çağrılırsa RuntimeError fırlatır.
 
 Parametreler (config['automata']):
-  alphabet_size : SAX alfabe buyuklugu (n_bins)
-  paa_segments  : Sliding window boyutu = PAA timestamp sayisi
+  alphabet_size : SAX alfabe büyüklüğü (n_bins)
+  paa_segments  : Sliding window boyutu
+  sax_strategy  : 'quantile' (config-driven, hard-code yok)
 """
 
 from __future__ import annotations
 
 import numpy as np
-from pyts.approximation import SymbolicAggregateApproximation
 
 
 class PAASAXTransformer:
     """
-    Sliding-window + pyts SAX (quantile) donusumu; sklearn-benzeri fit/transform.
+    Sliding-window + quantile breakpoint SAX dönüşümü; sklearn-benzeri fit/transform.
 
     Parametreler
     ------------
     config : dict
-        config.yaml icerigi; config['automata']['alphabet_size'] ve
-        config['automata']['paa_segments'] anahtarlari zorunludur.
+        config.yaml içeriği; config['automata']['alphabet_size'],
+        config['automata']['paa_segments'] ve config['automata']['sax_strategy']
+        anahtarları zorunludur.
 
     Dahili durum
     ------------
-    _sax                : SymbolicAggregateApproximation (fit sonrasi dolu)
-    _breakpoints_snap   : np.ndarray  (fit anindaki breakpoint kopyas)
+    _breakpoints        : np.ndarray  (n_bins-1 eleman, quantile sınırları)
+    _breakpoints_snap   : np.ndarray  (fit anındaki breakpoint kopyası, leakage testi)
+    _alphabet           : np.ndarray  (alfabe harfleri, ör. ['a','b','c'])
     _is_fitted          : bool
     """
 
@@ -52,31 +56,84 @@ class PAASAXTransformer:
         auto = config["automata"]
         self.alphabet_size: int = int(auto["alphabet_size"])
         self.paa_segments: int  = int(auto["paa_segments"])
+        self.strategy: str      = str(auto.get("sax_strategy", "quantile"))
         self._is_fitted: bool = False
-        self._sax: SymbolicAggregateApproximation | None = None
+        self._breakpoints: np.ndarray | None = None
         self._breakpoints_snap: np.ndarray | None = None
+        self._alphabet: np.ndarray = np.array(
+            [chr(i) for i in range(97, 97 + self.alphabet_size)]
+        )
 
     # ------------------------------------------------------------------
-    # Dahili: sliding-window matris olustur
+    # Dahili: sliding-window matris oluştur
     # ------------------------------------------------------------------
 
     def _make_windows(self, signal: np.ndarray) -> np.ndarray:
         """
-        1D sinyali (N,) sliding-window matrisi (n_windows, paa_segments)'e cevirir.
+        1D sinyali (N,) sliding-window matrisi (n_windows, paa_segments)'e çevirir.
 
         n_windows = N - paa_segments + 1.
-        Her satir W = paa_segments zamanli ardisik pencere.
+        Her satır W = paa_segments zamanlı ardışık pencere.
         """
         sig = np.asarray(signal, dtype=float).ravel()
         N, W = len(sig), self.paa_segments
         if N < W:
             raise ValueError(
-                f"Sinyal uzunlugu ({N}) paa_segments'ten ({W}) kucuk olamaz."
+                f"Sinyal uzunluğu ({N}) paa_segments'ten ({W}) küçük olamaz."
             )
-        # np.lib.stride_tricks.sliding_window_view -- NumPy >= 1.20
         windows = np.lib.stride_tricks.sliding_window_view(sig, W).copy()
-        # shape: (N - W + 1, W)
         return windows
+
+    # ------------------------------------------------------------------
+    # Dahili: breakpoint hesaplama (quantile / uniform / normal)
+    # ------------------------------------------------------------------
+
+    def _compute_breakpoints(self, data_flat: np.ndarray) -> np.ndarray:
+        """
+        1D veri dizisinden n_bins-1 adet breakpoint hesaplar.
+
+        strategy='quantile' → np.percentile ile eşit-yoğunluklu sınırlar.
+        strategy='uniform'  → min-max arasında eşit aralıklı sınırlar.
+        strategy='normal'   → standart normal dağılım sınırları (veri-bağımsız).
+
+        Döndürür
+        --------
+        breakpoints : np.ndarray, shape (n_bins - 1,)
+        """
+        n_bins = self.alphabet_size
+        if self.strategy == "quantile":
+            percentiles = np.linspace(0, 100, n_bins + 1)[1:-1]
+            bps = np.percentile(data_flat, percentiles)
+        elif self.strategy == "uniform":
+            mn, mx = data_flat.min(), data_flat.max()
+            bps = np.linspace(mn, mx, n_bins + 1)[1:-1]
+        elif self.strategy == "normal":
+            from scipy.stats import norm as _norm
+            bps = _norm.ppf(np.linspace(0, 1, n_bins + 1)[1:-1])
+        else:
+            raise ValueError(f"Bilinmeyen sax_strategy: {self.strategy}")
+        return bps
+
+    # ------------------------------------------------------------------
+    # Dahili: breakpoint'lerle sembolleştir
+    # ------------------------------------------------------------------
+
+    def _digitize(self, windows: np.ndarray) -> np.ndarray:
+        """
+        (n_windows, W) matrisini donmuş breakpoint'lerle sembol matrisine çevirir.
+
+        np.digitize ile her değer bir bin indeksine atanır,
+        ardından alfabe harfine dönüştürülür.
+
+        Döndürür
+        --------
+        symbols : np.ndarray, shape (n_windows, W), dtype=str
+        """
+        indices = np.digitize(windows, self._breakpoints)
+        # digitize n_bins adet bin verir: 0..n_bins-1
+        # clip: alphabet_size dışına taşma engelle
+        indices = np.clip(indices, 0, self.alphabet_size - 1)
+        return self._alphabet[indices]
 
     # ------------------------------------------------------------------
     # fit -- YALNIZCA train
@@ -84,54 +141,45 @@ class PAASAXTransformer:
 
     def fit(self, train_signal: np.ndarray) -> "PAASAXTransformer":
         """
-        SAX breakpoint'lerini yalnizca train sinyalinin sliding penceleri uzerinde ogrenir.
+        SAX breakpoint'lerini yalnızca train sinyalinin sliding pencereleri üzerinden öğrenir.
 
         Parametreler
         ------------
         train_signal : array-like, shape (N,)
-            Train PC1 sinyali. N >= paa_segments olmali.
+            Train PC1 sinyali. N >= paa_segments olmalı.
 
-        Adimlar
+        Adımlar
         -------
         1. Train sinyal -> sliding-window matrisi (n_train_wins, paa_segments).
-        2. SAX.fit(matris): her sutunun quantile'larindan breakpoint'ler ogren.
-           - strategy='quantile' -> veri dagilimina dayali; DONDUR.
-        3. Breakpoint anlık kopya sakla (leakage testi icin).
+        2. Tüm pencere elemanlarını düzleştir (1D).
+        3. Breakpoint'leri hesapla (strategy config'den) → dondur.
 
-        Donus
+        Dönüş
         -----
         self
         """
-        windows = self._make_windows(train_signal)  # (n_wins, W)
+        windows = self._make_windows(train_signal)
+        data_flat = windows.ravel()
 
-        # pyts SAX: (n_samples, n_timestamps) -> her timestamp -> breakpoint
-        # n_bins=alphabet_size, strategy='quantile'
-        self._sax = SymbolicAggregateApproximation(
-            n_bins=self.alphabet_size,
-            strategy="quantile",
-            alphabet=None,          # varsayilan: 'a','b','c',...
-        )
-        self._sax.fit(windows)      # breakpoint'leri SADECE buradan ogren
-
-        # Breakpoint anlık kopya -- leakage denetimi icin
-        self._breakpoints_snap = self._get_raw_breakpoints().copy()
+        self._breakpoints = self._compute_breakpoints(data_flat)
+        self._breakpoints_snap = self._breakpoints.copy()
         self._is_fitted = True
         return self
 
     # ------------------------------------------------------------------
-    # transform -- donmus breakpoint'lerle herhangi veriye uygula
+    # transform -- donmuş breakpoint'lerle herhangi veriye uygula
     # ------------------------------------------------------------------
 
     def transform(self, signal: np.ndarray) -> list[str]:
         """
-        Donmus breakpoint'lerle sinyali SAX sembol listesine donusturur.
+        Donmuş breakpoint'lerle sinyali SAX sembol listesine dönüştürür.
 
         Parametreler
         ------------
         signal : array-like, shape (N,)
-            Donusturulecek sinyal (train/val/test).
+            Dönüştürülecek sinyal (train/val/test).
 
-        Donus
+        Dönüş
         -----
         symbols : list[str]
             Uzunluk = N - paa_segments + 1.
@@ -139,28 +187,24 @@ class PAASAXTransformer:
 
         Leakage notu
         ------------
-        Bu metot icinde self._sax.fit() CAGRILMAZ.
-        Yalnizca .transform() kullanilir -> breakpoint'ler degismez.
+        Bu metot _breakpoints'i DEĞİŞTİRMEZ, yalnızca okur.
         """
         if not self._is_fitted:
-            raise RuntimeError("transform() oncesi fit() cagrilmalidir.")
+            raise RuntimeError("transform() öncesi fit() çağrılmalıdır.")
 
-        windows = self._make_windows(signal)  # (n_wins, W)
-        # SAX transform: donmus breakpoint'lerle sembolize et
-        # cikti shape: (n_wins, W), dtype: str (tek karakter)
-        X_sax = self._sax.transform(windows)  # (n_wins, W)
+        windows = self._make_windows(signal)
+        sym_matrix = self._digitize(windows)  # (n_wins, W)
 
-        # Her pencerenin temsili: son (rightmost) sembol
-        # -> last-step hizalamasiyla tutarli (DL ile simetri)
-        symbols = [str(row[-1]) for row in X_sax]
+        # Her pencerenin temsili: son (rightmost) sembol → last-step
+        symbols = [str(row[-1]) for row in sym_matrix]
         return symbols
 
     # ------------------------------------------------------------------
-    # fit_transform kolaylik (YALNIZCA train icin)
+    # fit_transform kolaylık (YALNIZCA train için)
     # ------------------------------------------------------------------
 
     def fit_transform(self, train_signal: np.ndarray) -> list[str]:
-        """fit() + transform() bilesimi. Test verisi icin CAGIRMAYIN."""
+        """fit() + transform() bileşimi. Test verisi için ÇAĞIRMAYIN."""
         self.fit(train_signal)
         return self.transform(train_signal)
 
@@ -170,51 +214,44 @@ class PAASAXTransformer:
 
     def assert_no_leakage(self, signal: np.ndarray) -> None:
         """
-        transform(signal) cagrisinin breakpoint'leri degistirmedigini dogrular.
+        transform(signal) çağrısının breakpoint'leri değiştirmediğini doğrular.
 
-        Firlatir
+        Fırlatır
         --------
-        AssertionError : Breakpoint'ler degismisse (data leakage).
-        RuntimeError   : fit() henuz cagrilmamissa.
+        AssertionError : Breakpoint'ler değişmişse (data leakage).
+        RuntimeError   : fit() henüz çağrılmamışsa.
         """
         if not self._is_fitted:
-            raise RuntimeError("Oncelikle fit() cagrilmalidir.")
+            raise RuntimeError("Öncelikle fit() çağrılmalıdır.")
         before = self._breakpoints_snap.copy()
         _ = self.transform(signal)
-        after = self._get_raw_breakpoints()
-        if len(before) > 0 and len(after) > 0:
-            if not np.allclose(before, after, equal_nan=True):
-                raise AssertionError(
-                    f"DATA LEAKAGE TESPIT EDILDI!\n"
-                    f"  oncesi : {before}\n"
-                    f"  sonrasi: {after}"
-                )
+        after = self._breakpoints.copy()
+        if not np.allclose(before, after, equal_nan=True):
+            raise AssertionError(
+                f"DATA LEAKAGE TESPİT EDİLDİ!\n"
+                f"  öncesi : {before}\n"
+                f"  sonrası: {after}"
+            )
 
     # ------------------------------------------------------------------
-    # Dahili: breakpoint cekme
+    # Breakpoint erişim
     # ------------------------------------------------------------------
 
     def _get_raw_breakpoints(self) -> np.ndarray:
-        """pyts SAX'tan breakpoint degerlerini ceker (pyts version-safe)."""
-        if self._sax is None:
+        """Donmuş breakpoint dizisini döndürür."""
+        if self._breakpoints is None:
             return np.array([])
-        # pyts >= 0.12 -> bin_edges_ attribute (shape: n_bins-1 veya 2D)
-        if hasattr(self._sax, "bin_edges_"):
-            return np.asarray(self._sax.bin_edges_).ravel()
-        # Fallback: breakpoints_ attribute (eski pyts)
-        if hasattr(self._sax, "breakpoints_"):
-            return np.asarray(self._sax.breakpoints_).ravel()
-        return np.array([])
+        return self._breakpoints.copy()
 
     def get_breakpoints(self) -> np.ndarray | None:
-        """Egitilmis SAX breakpoint degerlerini dondurur; fit edilmemisse None."""
+        """Eğitilmiş SAX breakpoint değerlerini döndürür; fit edilmemişse None."""
         if not self._is_fitted:
             return None
         bps = self._get_raw_breakpoints()
         return bps if len(bps) > 0 else None
 
     def n_output_symbols(self, signal_length: int) -> int:
-        """N uzunluklu sinyal icin uretilecek SAX sembol sayisini dondurur."""
+        """N uzunluklu sinyal için üretilecek SAX sembol sayısını döndürür."""
         return max(0, signal_length - self.paa_segments + 1)
 
     @property
@@ -227,5 +264,6 @@ class PAASAXTransformer:
             f"PAASAXTransformer("
             f"alphabet_size={self.alphabet_size}, "
             f"paa_segments={self.paa_segments}, "
+            f"strategy={self.strategy}, "
             f"status={status})"
         )

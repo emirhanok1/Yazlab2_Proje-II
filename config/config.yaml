@@ -15,6 +15,7 @@ automata:
   smoothing_k: 0.1
   paa_segments: 4
   anomaly_percentile: 5
+  sax_strategy: quantile
 automata_param_sweep:
   window_size:
   - 3
@@ -85,3 +86,5 @@ models:
     kernel_size: 3
     dropout: 0.2
   use_pos_weight: true
+explain:
+  confidence_high_threshold: 0.5

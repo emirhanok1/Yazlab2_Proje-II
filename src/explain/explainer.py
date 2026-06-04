@@ -274,15 +274,21 @@ class AutomataExplainer:
     >>> print(result.to_table())
     """
 
-    # Güven skoru yorumlama eşikleri (config'den bağımsız, görüntüleme amaçlı)
-    _CONF_HIGH_THRESH = 0.50   # üstü → HIGH (normal)
+    # Güven skoru yorumlama eşiği (config-driven)
 
-    def __init__(self, model: Any) -> None:
+    def __init__(self, model: Any, config: dict | None = None) -> None:
         if not getattr(model, "is_fitted_", False):
             raise RuntimeError(
                 "AutomataExplainer: model henüz fit edilmemiş. Önce model.fit() çağrın."
             )
         self._model = model
+        # confidence_high_threshold config'den oku, yoksa varsayılan 0.5
+        if config is not None and "explain" in config:
+            self._conf_high_thresh = float(
+                config["explain"].get("confidence_high_threshold", 0.5)
+            )
+        else:
+            self._conf_high_thresh = 0.5
 
     # ------------------------------------------------------------------
     # Yardımcı: tek geçişin log/doğrusal olasılığı
@@ -320,7 +326,7 @@ class AutomataExplainer:
         """
         Güven skorunu "HIGH (normal)" ya da "LOW (anomaly)" olarak yorumlar.
         """
-        if conf >= self._CONF_HIGH_THRESH:
+        if conf >= self._conf_high_thresh:
             return "HIGH (normal)"
         return "LOW (anomaly)"
 
