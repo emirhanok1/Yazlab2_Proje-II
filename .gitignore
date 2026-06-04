@@ -41,6 +41,9 @@ results/**/*.log
 
 # results/ klasör yapısının korunması için istisna
 !results/.gitkeep
+# Rapor görselleri (teslim edilecek figürler) — istisna
+!results/figures/
+!results/figures/*.png
 
 # 6. VERİ KLASÖRÜ
 # data/ dizini ve içindeki .csv'ler bilerek bırakılmıştır (commitlenecektir).
