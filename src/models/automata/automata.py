@@ -208,7 +208,7 @@ class ProbabilisticAutomata:
         automata_cfg = config["automata"]
         self.window_size: int = int(automata_cfg["window_size"])
         self.smoothing_k: float = float(automata_cfg["smoothing_k"])
-        self.anomaly_percentile: int = int(automata_cfg["anomaly_percentile"])
+        self.threshold_selection: str = automata_cfg.get("threshold_selection", "validation_f1_bidirectional")
 
         # Fit sonrası dolan alanlar — None ile başlar (leakage denetim kolaylığı)
         self.state_index_: dict[str, int] = {}
@@ -217,6 +217,7 @@ class ProbabilisticAutomata:
         self._log_trans_matrix: np.ndarray | None = None  # (M, M) log-space
         self._raw_counts_: dict[tuple[str, str], int] = {}  # smoothing öncesi
         self.threshold_: float | None = None
+        self.anomaly_direction_: str | None = None
         self.train_scores_: np.ndarray | None = None
         self.is_fitted_: bool = False
 
@@ -242,7 +243,7 @@ class ProbabilisticAutomata:
         4. Add-k smoothing → trans_matrix_  (tüm değerler > 0)
         5. Log-space matris (_log_trans_matrix)
         6. Train pencerelerinin normalize path-prob'ları (train_scores_)
-        7. Anomali eşiği (threshold_) = train_scores_ altındaki anomaly_percentile
+        (Threshold secimi disaridan set_threshold metoduyla validation setinden yapilir)
 
         Döndürür
         --------
@@ -283,17 +284,17 @@ class ProbabilisticAutomata:
             "[Automata.fit] %d train geçiş skoru hesaplandı.", len(self.train_scores_)
         )
 
-        # ---- 6. Anomali eşiği ----
-        self.threshold_ = float(
-            np.percentile(self.train_scores_, self.anomaly_percentile)
-        )
-        logger.info(
-            "[Automata.fit] Eşik (percentile=%d): %.6f",
-            self.anomaly_percentile, self.threshold_,
-        )
-
         self.is_fitted_ = True
         return self
+        
+    def set_threshold(self, threshold: float, direction: str) -> None:
+        """
+        Validation setinden bulunan en iyi eşiği ve yönü modele kaydeder.
+        direction: 'low' (düşük log-prob = anomali) veya 'high' (yüksek log-prob = anomali)
+        """
+        self.threshold_ = threshold
+        self.anomaly_direction_ = direction
+        logger.info(f"[Automata.set_threshold] Eşik: {threshold:.6f}, Yön: {direction.upper()}")
 
     # ------------------------------------------------------------------
     # Dahili: pattern geçiş dizisinden normalize path-prob dizisi
@@ -426,8 +427,8 @@ class ProbabilisticAutomata:
         Test SAX sembol dizisi için anomali kararı verir (last-step hizalaması).
 
         Karar mantığı:
-            per-transition normalize log-prob < threshold_  →  1 (anomali)
-            per-transition normalize log-prob >= threshold_ →  0 (normal)
+            direction 'low'  ise: log-prob < threshold_  →  1 (anomali)
+            direction 'high' ise: log-prob > threshold_  →  1 (anomali)
 
         Parametreler
         ------------
@@ -450,7 +451,13 @@ class ProbabilisticAutomata:
                 return empty_labels, np.array([], dtype=float)
             return empty_labels
 
-        labels = (raw_scores < self.threshold_).astype(int)
+        if self.threshold_ is None or self.anomaly_direction_ is None:
+            raise ValueError("Threshold ve yön set edilmedi! Lütfen predict()'ten önce set_threshold() çağırın.")
+
+        if self.anomaly_direction_ == 'low':
+            labels = (raw_scores < self.threshold_).astype(int)
+        else:
+            labels = (raw_scores > self.threshold_).astype(int)
 
         if return_scores:
             return labels, raw_scores

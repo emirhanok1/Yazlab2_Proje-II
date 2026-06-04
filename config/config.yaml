@@ -14,7 +14,7 @@ automata:
   alphabet_size: 3
   smoothing_k: 0.1
   paa_segments: 4
-  anomaly_percentile: 5
+  threshold_selection: "validation_f1_bidirectional"
   sax_strategy: quantile
 automata_param_sweep:
   window_size:
