@@ -35,6 +35,7 @@ class DeepTrainer:
         self.best_epoch = -1
         
         self.avg_inference_time_ms = 0.0
+        self.total_train_time_ms = 0.0
 
     def train(self):
         info("Eğitim başlıyor...")
@@ -61,6 +62,7 @@ class DeepTrainer:
                 train_loss += loss.item() * X_batch.size(0)
                 
             train_time_ms = (time.time() - t0) * 1000.0
+            self.total_train_time_ms += train_time_ms
             train_loss /= len(self.train_loader.dataset)
             
             # --- VALIDATION ---

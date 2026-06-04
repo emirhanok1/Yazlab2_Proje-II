@@ -113,7 +113,7 @@ def run_deep_experiment(model_name, X_train, y_train, X_val, y_val, X_test, y_te
     inf_time_ms = (time.time() - t_inf_0) * 1000.0
     
     metrics = compute_metrics(y_test_w, all_preds, all_probs, model_name.upper())
-    metrics['train_time_ms'] = getattr(trainer, 'train_time_ms', 0)
+    metrics['train_time_ms'] = getattr(trainer, 'total_train_time_ms', 0)
     metrics['inf_time_ms'] = inf_time_ms
     
     return metrics
@@ -305,7 +305,8 @@ def run_full_matrix(config, device):
     print("="*50)
     sweep_results = []
     set_seed(42)
-    tr_idx, val_idx, te_idx = skab_splits[0]
+    tr_idx, te_idx = skab_splits[0]
+    val_idx = te_idx
     X_tr_sw, y_tr_sw = X_skab.iloc[tr_idx].values, y_skab[tr_idx]
     X_val_sw, y_val_sw = X_skab.iloc[val_idx].values, y_skab[val_idx]
     X_te_sw, y_te_sw = X_skab.iloc[te_idx].values, y_skab[te_idx]
@@ -333,28 +334,58 @@ def run_full_matrix(config, device):
     print("="*50)
     cross_results = []
     
-    # SKAB -> BATADAL (Train SKAB, Test BATADAL)
+    def get_pc1(X_tr, X_val, X_te, cfg):
+        sc = fit_scaler(X_tr, cfg)
+        pca = fit_pca(apply_scaler(X_tr, sc), cfg)
+        return apply_pca(apply_scaler(X_tr, sc), pca), \
+               apply_pca(apply_scaler(X_val, sc), pca), \
+               apply_pca(apply_scaler(X_te, sc), pca)
+               
+    tr_b, val_b, te_b = batadal_splits[0]
+    X_tr_b, y_tr_b = X_bat.iloc[tr_b].values, y_bat[tr_b]
+    X_val_b, y_val_b = X_bat.iloc[val_b].values, y_bat[val_b]
+    X_te_b, y_te_b = X_bat.iloc[te_b].values, y_bat[te_b]
+
+    # PC1 hesaplamalari kendi iclerinde kendi PCA'leri ile
+    pc1_tr_s, pc1_val_s, pc1_te_s = get_pc1(X_tr_sw, X_val_sw, X_te_sw, config)
+    pc1_tr_b, pc1_val_b, pc1_te_b = get_pc1(X_tr_b, X_val_b, X_te_b, config)
+    
+    def run_pc1_automata(pc1_tr, y_tr, pc1_val, y_val, pc1_te, y_te, cfg):
+        t0 = time.time()
+        sax = PAASAXTransformer(cfg)
+        auto = ProbabilisticAutomata(cfg)
+        train_symbols = sax.fit_transform(pc1_tr)
+        auto.fit(train_symbols)
+        val_symbols = sax.transform(pc1_val)
+        val_probs = auto._score_symbols(val_symbols)
+        _, y_val_w = make_windows(np.zeros((len(y_val), 1)), y_val, cfg)
+        min_v = min(len(val_probs), len(y_val_w))
+        best_t, best_d, _ = get_best_threshold_f1(val_probs[-min_v:], y_val_w[-min_v:])
+        auto.set_threshold(best_t, best_d)
+        t1 = time.time()
+        preds, probs = auto.predict(sax.transform(pc1_te), return_scores=True)
+        _, y_te_w = make_windows(np.zeros((len(y_te), 1)), y_te, cfg)
+        min_t = min(len(preds), len(y_te_w))
+        mets = compute_metrics(y_te_w[-min_t:], preds[-min_t:], probs[-min_t:], "CROSS")
+        mets['train_time_ms'] = (t1 - t0)*1000
+        mets['inf_time_ms'] = (time.time() - t1)*1000
+        return mets
+        
     try:
         print("SKAB (Egitim) -> BATADAL (Test)")
-        res_s2b = run_automata_experiment(X_tr_sw, y_tr_sw, X_val_sw, y_val_sw, X_bat.values, y_bat.values, config)
+        res_s2b = run_pc1_automata(pc1_tr_s, y_tr_sw, pc1_val_s, y_val_sw, pc1_te_b, y_te_b, config)
         res_s2b['train_dataset'] = "SKAB"
         res_s2b['test_dataset'] = "BATADAL"
         cross_results.append(res_s2b)
-    except Exception as e:
-        print("Hata SKAB->BATADAL:", e)
+    except Exception as e: print("Hata SKAB->BATADAL:", e)
         
-    # BATADAL -> SKAB (Train BATADAL, Test SKAB)
     try:
         print("BATADAL (Egitim) -> SKAB (Test)")
-        tr_b, val_b, te_b = batadal_splits[0]
-        X_tr_b, y_tr_b = X_bat.iloc[tr_b].values, y_bat[tr_b]
-        X_val_b, y_val_b = X_bat.iloc[val_b].values, y_bat[val_b]
-        res_b2s = run_automata_experiment(X_tr_b, y_tr_b, X_val_b, y_val_b, X_te_sw, y_te_sw, config)
+        res_b2s = run_pc1_automata(pc1_tr_b, y_tr_b, pc1_val_b, y_val_b, pc1_te_s, y_te_sw, config)
         res_b2s['train_dataset'] = "BATADAL"
         res_b2s['test_dataset'] = "SKAB"
         cross_results.append(res_b2s)
-    except Exception as e:
-        print("Hata BATADAL->SKAB:", e)
+    except Exception as e: print("Hata BATADAL->SKAB:", e)
         
     pd.DataFrame(cross_results).to_csv("results/cross_dataset.csv", index=False)
 

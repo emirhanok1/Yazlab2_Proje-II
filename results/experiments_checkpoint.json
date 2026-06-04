@@ -1,0 +1,4441 @@
+[
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.8914539400665926,
+    "precision": 0.8549257759784076,
+    "recall": 0.8221933809214795,
+    "f1": 0.8382401587826662,
+    "distribution": {
+      "0": 3023,
+      "1": 1482
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 156.84771537780762
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.8874583795782464,
+    "precision": 0.8507462686567164,
+    "recall": 0.8137573004542504,
+    "f1": 0.8318407960199005,
+    "distribution": {
+      "0": 3031,
+      "1": 1474
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 160.19177436828613
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.8799112097669256,
+    "precision": 0.8217503217503217,
+    "recall": 0.8286826735885788,
+    "f1": 0.8252019386106624,
+    "distribution": {
+      "0": 2951,
+      "1": 1554
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 203.41134071350098
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.578538102643857,
+    "precision": 0.43397626112759646,
+    "recall": 0.7592472420506164,
+    "f1": 0.5522775548737314,
+    "distribution": {
+      "0": 1805,
+      "1": 2696
+    },
+    "degenerate": false,
+    "train_time_ms": 64.7883415222168,
+    "inf_time_ms": 3.0002593994140625,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.49589345172031074,
+    "precision": 0.36736918604651164,
+    "recall": 0.6560674886437379,
+    "f1": 0.47099930118798045,
+    "distribution": {
+      "0": 1753,
+      "1": 2752
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 210.6609344482422
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.497669256381798,
+    "precision": 0.36795903438185806,
+    "recall": 0.6528228423101882,
+    "f1": 0.4706432748538012,
+    "distribution": {
+      "0": 1771,
+      "1": 2734
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 133.6674690246582
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.3458379578246393,
+    "precision": 0.3431503792949576,
+    "recall": 0.9980532121998702,
+    "f1": 0.5107089490287232,
+    "distribution": {
+      "0": 23,
+      "1": 4482
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 172.40643501281738
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.6431904021328594,
+    "precision": 0.376425855513308,
+    "recall": 0.06424399740428294,
+    "f1": 0.10975609756097561,
+    "distribution": {
+      "0": 4238,
+      "1": 263
+    },
+    "degenerate": false,
+    "train_time_ms": 43.66588592529297,
+    "inf_time_ms": 2.0301342010498047,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.8863889507685453,
+    "precision": 0.7915717539863326,
+    "recall": 0.9061277705345502,
+    "f1": 0.8449848024316109,
+    "distribution": {
+      "0": 2733,
+      "1": 1756
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 146.6221809387207
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.9037647582980619,
+    "precision": 0.8327294685990339,
+    "recall": 0.8989569752281616,
+    "f1": 0.864576802507837,
+    "distribution": {
+      "0": 2833,
+      "1": 1656
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 163.2552146911621
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.9296057028291379,
+    "precision": 0.9043824701195219,
+    "recall": 0.8878748370273793,
+    "f1": 0.8960526315789473,
+    "distribution": {
+      "0": 2983,
+      "1": 1506
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 192.26813316345215
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.5641025641025641,
+    "precision": 0.41583366653338666,
+    "recall": 0.6779661016949152,
+    "f1": 0.5154894671623296,
+    "distribution": {
+      "0": 1984,
+      "1": 2501
+    },
+    "degenerate": false,
+    "train_time_ms": 59.87191200256348,
+    "inf_time_ms": 6.122112274169922,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.5266206282022722,
+    "precision": 0.36930561698363557,
+    "recall": 0.5443285528031291,
+    "f1": 0.4400527009222661,
+    "distribution": {
+      "0": 2228,
+      "1": 2261
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 171.68784141540527
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.5045667186455781,
+    "precision": 0.37222222222222223,
+    "recall": 0.6551499348109517,
+    "f1": 0.4747283892300425,
+    "distribution": {
+      "0": 1789,
+      "1": 2700
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 171.1885929107666
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.505012252171976,
+    "precision": 0.38409703504043125,
+    "recall": 0.7431551499348109,
+    "f1": 0.5064415815193247,
+    "distribution": {
+      "0": 1521,
+      "1": 2968
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 170.37177085876465
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 1,
+    "accuracy": 0.6394648829431439,
+    "precision": 0.33725490196078434,
+    "recall": 0.0560625814863103,
+    "f1": 0.09614309670206819,
+    "distribution": {
+      "0": 4230,
+      "1": 255
+    },
+    "degenerate": false,
+    "train_time_ms": 56.523799896240234,
+    "inf_time_ms": 1.871347427368164,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.841696269982238,
+    "precision": 0.9846827133479212,
+    "recall": 0.5628517823639775,
+    "f1": 0.716275368085953,
+    "distribution": {
+      "0": 3590,
+      "1": 914
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 141.05963706970215
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.8365896980461812,
+    "precision": 0.9897843359818388,
+    "recall": 0.5453408380237649,
+    "f1": 0.7032258064516129,
+    "distribution": {
+      "0": 3623,
+      "1": 881
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 157.27925300598145
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.8394760213143873,
+    "precision": 0.9921348314606742,
+    "recall": 0.5522201375859912,
+    "f1": 0.7095218963439133,
+    "distribution": {
+      "0": 3614,
+      "1": 890
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 208.53686332702637
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 49.57103729248047,
+    "inf_time_ms": 2.999544143676758,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.5064387211367674,
+    "precision": 0.3631578947368421,
+    "recall": 0.5178236397748592,
+    "f1": 0.42691415313225056,
+    "distribution": {
+      "0": 2224,
+      "1": 2280
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 127.91943550109863
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.5317495559502664,
+    "precision": 0.35294117647058826,
+    "recall": 0.3827392120075047,
+    "f1": 0.36723672367236726,
+    "distribution": {
+      "0": 2770,
+      "1": 1734
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 126.80315971374512
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.37211367673179396,
+    "precision": 0.3576557794764883,
+    "recall": 0.965603502188868,
+    "f1": 0.521974306964165,
+    "distribution": {
+      "0": 187,
+      "1": 4317
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 176.04470252990723
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.35534800978430064,
+    "recall": 0.9993746091307066,
+    "f1": 0.5242782152230971,
+    "distribution": {
+      "0": 3,
+      "1": 4497
+    },
+    "degenerate": false,
+    "train_time_ms": 42.38247871398926,
+    "inf_time_ms": 3.0307769775390625,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.9450971531857207,
+    "precision": 0.9788135593220338,
+    "recall": 0.8667917448405253,
+    "f1": 0.9194029850746268,
+    "distribution": {
+      "0": 3010,
+      "1": 1416
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 123.02207946777344
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.9430637144148215,
+    "precision": 0.9673837612768911,
+    "recall": 0.8717948717948718,
+    "f1": 0.9171052631578948,
+    "distribution": {
+      "0": 2985,
+      "1": 1441
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 137.8464698791504
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.9383190239493899,
+    "precision": 0.942,
+    "recall": 0.8836772983114447,
+    "f1": 0.9119070667957405,
+    "distribution": {
+      "0": 2926,
+      "1": 1500
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 156.3568115234375
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.37675260063319765,
+    "precision": 0.3664897299792292,
+    "recall": 0.9931207004377736,
+    "f1": 0.5354012137559002,
+    "distribution": {
+      "0": 89,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 55.69911003112793,
+    "inf_time_ms": 3.3397674560546875,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.543380027112517,
+    "precision": 0.3982642237222758,
+    "recall": 0.5165728580362726,
+    "f1": 0.44976858154097465,
+    "distribution": {
+      "0": 2352,
+      "1": 2074
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 127.76780128479004
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.6217803886127429,
+    "precision": 0.42829827915869984,
+    "recall": 0.14008755472170106,
+    "f1": 0.2111215834118756,
+    "distribution": {
+      "0": 3903,
+      "1": 523
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 140.92516899108887
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.41030275643922276,
+    "precision": 0.3755845434408073,
+    "recall": 0.9543464665415885,
+    "f1": 0.5390321441186859,
+    "distribution": {
+      "0": 363,
+      "1": 4063
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 191.66016578674316
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 3,
+    "accuracy": 0.5780189959294437,
+    "precision": 0.390304026294166,
+    "recall": 0.2970606629143214,
+    "f1": 0.33735795454545453,
+    "distribution": {
+      "0": 3205,
+      "1": 1217
+    },
+    "degenerate": false,
+    "train_time_ms": 41.702985763549805,
+    "inf_time_ms": 3.0388832092285156,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.9320538274873152,
+    "precision": 0.946236559139785,
+    "recall": 0.849967804249839,
+    "f1": 0.8955223880597015,
+    "distribution": {
+      "0": 3138,
+      "1": 1395
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 148.95272254943848
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.9388925656298257,
+    "precision": 0.9684287812041116,
+    "recall": 0.8493238892466195,
+    "f1": 0.9049742710120069,
+    "distribution": {
+      "0": 3171,
+      "1": 1362
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 151.92580223083496
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.928082947275535,
+    "precision": 0.9228118538938663,
+    "recall": 0.8622021893110109,
+    "f1": 0.8914780292942743,
+    "distribution": {
+      "0": 3082,
+      "1": 1451
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 159.67154502868652
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.4952528151909914,
+    "precision": 0.38256968920217876,
+    "recall": 0.7688345138441726,
+    "f1": 0.5109114249037228,
+    "distribution": {
+      "0": 1408,
+      "1": 3121
+    },
+    "degenerate": false,
+    "train_time_ms": 40.174245834350586,
+    "inf_time_ms": 3.0193328857421875,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.5843812045003309,
+    "precision": 0.3668543845534996,
+    "recall": 0.2936252414681262,
+    "f1": 0.3261802575107296,
+    "distribution": {
+      "0": 3290,
+      "1": 1243
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 159.85774993896484
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.46944628281491285,
+    "precision": 0.361328125,
+    "recall": 0.7147456535737282,
+    "f1": 0.48,
+    "distribution": {
+      "0": 1461,
+      "1": 3072
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 137.41302490234375
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.3609088903595853,
+    "precision": 0.34754990925589835,
+    "recall": 0.9864777849323889,
+    "f1": 0.5140077168260359,
+    "distribution": {
+      "0": 125,
+      "1": 4408
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 157.8829288482666
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 4,
+    "accuracy": 0.3548244645617134,
+    "precision": 0.34397082288579894,
+    "recall": 0.9716677398583387,
+    "f1": 0.5080808080808081,
+    "distribution": {
+      "0": 142,
+      "1": 4387
+    },
+    "degenerate": false,
+    "train_time_ms": 55.33719062805176,
+    "inf_time_ms": 2.9821395874023438,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.6410564225690276,
+    "precision": 0.03404255319148936,
+    "recall": 0.1,
+    "f1": 0.050793650793650794,
+    "distribution": {
+      "0": 598,
+      "1": 235
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 31.996488571166992
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.787515006002401,
+    "precision": 0.3020408163265306,
+    "recall": 0.925,
+    "f1": 0.4553846153846154,
+    "distribution": {
+      "0": 588,
+      "1": 245
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 27.57883071899414
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.7719087635054022,
+    "precision": 0.03389830508474576,
+    "recall": 0.05,
+    "f1": 0.04040404040404041,
+    "distribution": {
+      "0": 715,
+      "1": 118
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 36.42582893371582
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.8383594692400482,
+    "precision": 0.05,
+    "recall": 0.0375,
+    "f1": 0.04285714285714286,
+    "distribution": {
+      "0": 769,
+      "1": 60
+    },
+    "degenerate": false,
+    "train_time_ms": 15.256166458129883,
+    "inf_time_ms": 1.0037422180175781,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.7058823529411765,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "distribution": {
+      "0": 668,
+      "1": 165
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 21.292686462402344
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.7466986794717887,
+    "precision": 0.2600732600732601,
+    "recall": 0.8875,
+    "f1": 0.40226628895184136,
+    "distribution": {
+      "0": 560,
+      "1": 273
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 25.040626525878906
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.7190876350540216,
+    "precision": 0.08602150537634409,
+    "recall": 0.2,
+    "f1": 0.12030075187969924,
+    "distribution": {
+      "0": 647,
+      "1": 186
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 30.460834503173828
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 42,
+    "fold": 0,
+    "accuracy": 0.7249698431845597,
+    "precision": 0.13725490196078433,
+    "recall": 0.35,
+    "f1": 0.19718309859154928,
+    "distribution": {
+      "0": 625,
+      "1": 204
+    },
+    "degenerate": false,
+    "train_time_ms": 11.150121688842773,
+    "inf_time_ms": 0.99945068359375,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.8887902330743618,
+    "precision": 0.8448275862068966,
+    "recall": 0.826735885788449,
+    "f1": 0.835683830764185,
+    "distribution": {
+      "0": 2997,
+      "1": 1508
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 126.05619430541992
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.8785793562708102,
+    "precision": 0.8198198198198198,
+    "recall": 0.826735885788449,
+    "f1": 0.8232633279483037,
+    "distribution": {
+      "0": 2951,
+      "1": 1554
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 145.31636238098145
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.862819089900111,
+    "precision": 0.7802064359441409,
+    "recall": 0.8338741077222582,
+    "f1": 0.8061480552070264,
+    "distribution": {
+      "0": 2858,
+      "1": 1647
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 175.13275146484375
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.578538102643857,
+    "precision": 0.43397626112759646,
+    "recall": 0.7592472420506164,
+    "f1": 0.5522775548737314,
+    "distribution": {
+      "0": 1805,
+      "1": 2696
+    },
+    "degenerate": false,
+    "train_time_ms": 42.203664779663086,
+    "inf_time_ms": 3.000974655151367,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.5691453940066593,
+    "precision": 0.39669421487603307,
+    "recall": 0.4983776768332252,
+    "f1": 0.44176013805004316,
+    "distribution": {
+      "0": 2569,
+      "1": 1936
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 184.251070022583
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.38246392896781356,
+    "precision": 0.34854771784232363,
+    "recall": 0.9266709928617781,
+    "f1": 0.506562610854913,
+    "distribution": {
+      "0": 408,
+      "1": 4097
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 150.18963813781738
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.4102108768035516,
+    "precision": 0.3564076170869789,
+    "recall": 0.8987670343932511,
+    "f1": 0.5104109084208587,
+    "distribution": {
+      "0": 619,
+      "1": 3886
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 175.5533218383789
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.6369695623194845,
+    "precision": 0.34448160535117056,
+    "recall": 0.06683971447112265,
+    "f1": 0.11195652173913044,
+    "distribution": {
+      "0": 4202,
+      "1": 299
+    },
+    "degenerate": false,
+    "train_time_ms": 55.42111396789551,
+    "inf_time_ms": 1.9636154174804688,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.916462463800401,
+    "precision": 0.8712363869314542,
+    "recall": 0.8865710560625815,
+    "f1": 0.8788368336025848,
+    "distribution": {
+      "0": 2928,
+      "1": 1561
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 128.0062198638916
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.9233682334595679,
+    "precision": 0.8878748370273793,
+    "recall": 0.8878748370273793,
+    "f1": 0.8878748370273793,
+    "distribution": {
+      "0": 2955,
+      "1": 1534
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 154.24466133117676
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.9117843617732234,
+    "precision": 0.8574120603015075,
+    "recall": 0.8898305084745762,
+    "f1": 0.8733205374280231,
+    "distribution": {
+      "0": 2897,
+      "1": 1592
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 159.17611122131348
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.5641025641025641,
+    "precision": 0.41583366653338666,
+    "recall": 0.6779661016949152,
+    "f1": 0.5154894671623296,
+    "distribution": {
+      "0": 1984,
+      "1": 2501
+    },
+    "degenerate": false,
+    "train_time_ms": 55.8621883392334,
+    "inf_time_ms": 2.332448959350586,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.5575852082869236,
+    "precision": 0.3751381215469613,
+    "recall": 0.4426336375488918,
+    "f1": 0.4061004784688995,
+    "distribution": {
+      "0": 2679,
+      "1": 1810
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 136.26956939697266
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.6199599019826242,
+    "precision": 0.43533834586466164,
+    "recall": 0.3774445893089961,
+    "f1": 0.40432960893854747,
+    "distribution": {
+      "0": 3159,
+      "1": 1330
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 159.38591957092285
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.4134551124972154,
+    "precision": 0.36085084831602937,
+    "recall": 0.9289439374185137,
+    "f1": 0.5197884369870509,
+    "distribution": {
+      "0": 540,
+      "1": 3949
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 221.07481956481934
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 1,
+    "accuracy": 0.6365663322185061,
+    "precision": 0.33783783783783783,
+    "recall": 0.0651890482398957,
+    "f1": 0.1092896174863388,
+    "distribution": {
+      "0": 4189,
+      "1": 296
+    },
+    "degenerate": false,
+    "train_time_ms": 57.79600143432617,
+    "inf_time_ms": 3.0412673950195312,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.8308170515097691,
+    "precision": 0.9456869009584664,
+    "recall": 0.5553470919324578,
+    "f1": 0.6997635933806147,
+    "distribution": {
+      "0": 3565,
+      "1": 939
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 152.5137424468994
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.8423623445825933,
+    "precision": 0.9868565169769989,
+    "recall": 0.5634771732332708,
+    "f1": 0.7173566878980892,
+    "distribution": {
+      "0": 3591,
+      "1": 913
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 138.7951374053955
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.8428063943161634,
+    "precision": 0.9922651933701657,
+    "recall": 0.5616010006253909,
+    "f1": 0.7172523961661342,
+    "distribution": {
+      "0": 3599,
+      "1": 905
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 214.42890167236328
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 54.728031158447266,
+    "inf_time_ms": 3.997325897216797,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.5299733570159858,
+    "precision": 0.362087326943557,
+    "recall": 0.4252657911194497,
+    "f1": 0.3911417888984757,
+    "distribution": {
+      "0": 2626,
+      "1": 1878
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 122.76554107666016
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.6210035523978685,
+    "precision": 0.4059233449477352,
+    "recall": 0.14571607254534083,
+    "f1": 0.21445006902899216,
+    "distribution": {
+      "0": 3930,
+      "1": 574
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 182.99579620361328
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.3550177619893428,
+    "precision": 0.3550177619893428,
+    "recall": 1.0,
+    "f1": 0.5240045879075864,
+    "distribution": {
+      "1": 4504
+    },
+    "degenerate": true,
+    "train_time_ms": 0,
+    "inf_time_ms": 186.61093711853027
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 2,
+    "accuracy": 0.3557777777777778,
+    "precision": 0.3554913294797688,
+    "recall": 1.0,
+    "f1": 0.5245202558635395,
+    "distribution": {
+      "0": 2,
+      "1": 4498
+    },
+    "degenerate": false,
+    "train_time_ms": 54.25143241882324,
+    "inf_time_ms": 2.2382736206054688,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.9315408947130592,
+    "precision": 0.9196891191709845,
+    "recall": 0.8880550343964978,
+    "f1": 0.9035952911231308,
+    "distribution": {
+      "0": 2882,
+      "1": 1544
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 139.85538482666016
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.9446452779032987,
+    "precision": 0.9707927677329624,
+    "recall": 0.8730456535334584,
+    "f1": 0.9193282844912742,
+    "distribution": {
+      "0": 2988,
+      "1": 1438
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 169.09122467041016
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.92950745594216,
+    "precision": 0.9075364154528183,
+    "recall": 0.8961851156973109,
+    "f1": 0.9018250471994965,
+    "distribution": {
+      "0": 2847,
+      "1": 1579
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 199.18584823608398
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.37675260063319765,
+    "precision": 0.3664897299792292,
+    "recall": 0.9931207004377736,
+    "f1": 0.5354012137559002,
+    "distribution": {
+      "0": 89,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 60.99891662597656,
+    "inf_time_ms": 3.0024051666259766,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.5476728422955265,
+    "precision": 0.40204180845892074,
+    "recall": 0.517198248905566,
+    "f1": 0.4524070021881838,
+    "distribution": {
+      "0": 2369,
+      "1": 2057
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 129.69565391540527
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.5519656574785359,
+    "precision": 0.3859857482185273,
+    "recall": 0.4065040650406504,
+    "f1": 0.395979287237283,
+    "distribution": {
+      "0": 2742,
+      "1": 1684
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 155.02047538757324
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.36172616357885223,
+    "precision": 0.3613749434644957,
+    "recall": 0.9993746091307066,
+    "f1": 0.5308088357415711,
+    "distribution": {
+      "0": 4,
+      "1": 4422
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 175.21166801452637
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 3,
+    "accuracy": 0.5649027589326097,
+    "precision": 0.37566947207345064,
+    "recall": 0.3070669168230144,
+    "f1": 0.3379215416379904,
+    "distribution": {
+      "0": 3115,
+      "1": 1307
+    },
+    "degenerate": false,
+    "train_time_ms": 38.00487518310547,
+    "inf_time_ms": 3.0012130737304688,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.9199205823957644,
+    "precision": 0.9042119565217391,
+    "recall": 0.8570508692852543,
+    "f1": 0.88,
+    "distribution": {
+      "0": 3061,
+      "1": 1472
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 151.11827850341797
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.9322744319435252,
+    "precision": 0.9431009957325747,
+    "recall": 0.8538312942691565,
+    "f1": 0.8962487326799594,
+    "distribution": {
+      "0": 3127,
+      "1": 1406
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 142.65990257263184
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.9362453121553055,
+    "precision": 0.9606413994169096,
+    "recall": 0.8486799742433999,
+    "f1": 0.9011965811965812,
+    "distribution": {
+      "0": 3161,
+      "1": 1372
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 163.07592391967773
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.4952528151909914,
+    "precision": 0.38256968920217876,
+    "recall": 0.7688345138441726,
+    "f1": 0.5109114249037228,
+    "distribution": {
+      "0": 1408,
+      "1": 3121
+    },
+    "degenerate": false,
+    "train_time_ms": 47.44577407836914,
+    "inf_time_ms": 3.032207489013672,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.45047429958085156,
+    "precision": 0.36222091656874267,
+    "recall": 0.793947198969736,
+    "f1": 0.4974783134960662,
+    "distribution": {
+      "0": 1129,
+      "1": 3404
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 149.28889274597168
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.49658063092874477,
+    "precision": 0.3730407523510972,
+    "recall": 0.6896329684481648,
+    "f1": 0.48417721518987344,
+    "distribution": {
+      "0": 1662,
+      "1": 2871
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 133.1315040588379
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.3812045003309067,
+    "precision": 0.3528443817583451,
+    "recall": 0.9665164198325821,
+    "f1": 0.5169622868951266,
+    "distribution": {
+      "0": 279,
+      "1": 4254
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 146.88658714294434
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 4,
+    "accuracy": 0.3689556193420181,
+    "precision": 0.3502409915079183,
+    "recall": 0.9826142949130715,
+    "f1": 0.5164128595600677,
+    "distribution": {
+      "0": 172,
+      "1": 4357
+    },
+    "degenerate": false,
+    "train_time_ms": 52.33120918273926,
+    "inf_time_ms": 2.9985904693603516,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.6830732292917167,
+    "precision": 0.030612244897959183,
+    "recall": 0.075,
+    "f1": 0.043478260869565216,
+    "distribution": {
+      "0": 637,
+      "1": 196
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 31.917572021484375
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.7034813925570228,
+    "precision": 0.02824858757062147,
+    "recall": 0.0625,
+    "f1": 0.038910505836575876,
+    "distribution": {
+      "0": 656,
+      "1": 177
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 22.289276123046875
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.7575030012004802,
+    "precision": 0.03076923076923077,
+    "recall": 0.05,
+    "f1": 0.0380952380952381,
+    "distribution": {
+      "0": 703,
+      "1": 130
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 28.001070022583008
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.8383594692400482,
+    "precision": 0.05,
+    "recall": 0.0375,
+    "f1": 0.04285714285714286,
+    "distribution": {
+      "0": 769,
+      "1": 60
+    },
+    "degenerate": false,
+    "train_time_ms": 11.000394821166992,
+    "inf_time_ms": 0.0,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.765906362545018,
+    "precision": 0.12903225806451613,
+    "recall": 0.25,
+    "f1": 0.1702127659574468,
+    "distribution": {
+      "0": 678,
+      "1": 155
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 31.002044677734375
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.5354141656662665,
+    "precision": 0.03903903903903904,
+    "recall": 0.1625,
+    "f1": 0.06295399515738499,
+    "distribution": {
+      "0": 500,
+      "1": 333
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 40.138959884643555
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.737094837935174,
+    "precision": 0.013986013986013986,
+    "recall": 0.025,
+    "f1": 0.017937219730941704,
+    "distribution": {
+      "0": 690,
+      "1": 143
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 42.2358512878418
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 123,
+    "fold": 0,
+    "accuracy": 0.7322074788902292,
+    "precision": 0.11413043478260869,
+    "recall": 0.2625,
+    "f1": 0.1590909090909091,
+    "distribution": {
+      "0": 645,
+      "1": 184
+    },
+    "degenerate": false,
+    "train_time_ms": 15.047073364257812,
+    "inf_time_ms": 0.0,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.9009988901220866,
+    "precision": 0.8907922912205567,
+    "recall": 0.8098637248539909,
+    "f1": 0.8484024473147519,
+    "distribution": {
+      "0": 3104,
+      "1": 1401
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 134.44948196411133
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.893007769145394,
+    "precision": 0.8659295093296475,
+    "recall": 0.8131083711875405,
+    "f1": 0.8386880856760375,
+    "distribution": {
+      "0": 3058,
+      "1": 1447
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 343.0829048156738
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.8741398446170922,
+    "precision": 0.8113810741687979,
+    "recall": 0.8234912394548994,
+    "f1": 0.8173913043478261,
+    "distribution": {
+      "0": 2941,
+      "1": 1564
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 182.63959884643555
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.578538102643857,
+    "precision": 0.43397626112759646,
+    "recall": 0.7592472420506164,
+    "f1": 0.5522775548737314,
+    "distribution": {
+      "0": 1805,
+      "1": 2696
+    },
+    "degenerate": false,
+    "train_time_ms": 66.19572639465332,
+    "inf_time_ms": 2.1796226501464844,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.4974472807991121,
+    "precision": 0.3684976355038196,
+    "recall": 0.6573653471771577,
+    "f1": 0.4722610722610723,
+    "distribution": {
+      "0": 1756,
+      "1": 2749
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 130.5830478668213
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.5755826859045505,
+    "precision": 0.3891213389121339,
+    "recall": 0.4224529526281635,
+    "f1": 0.40510267579340387,
+    "distribution": {
+      "0": 2832,
+      "1": 1673
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 152.34136581420898
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.40266370699223086,
+    "precision": 0.3571073558648111,
+    "recall": 0.9325113562621674,
+    "f1": 0.5164420485175202,
+    "distribution": {
+      "0": 481,
+      "1": 4024
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 171.2174415588379
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.6449677849366807,
+    "precision": 0.3855421686746988,
+    "recall": 0.06229720960415315,
+    "f1": 0.10726256983240223,
+    "distribution": {
+      "0": 4252,
+      "1": 249
+    },
+    "degenerate": false,
+    "train_time_ms": 62.134504318237305,
+    "inf_time_ms": 2.120494842529297,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.9235910002227667,
+    "precision": 0.8849385908209437,
+    "recall": 0.8924380704041721,
+    "f1": 0.8886725089256735,
+    "distribution": {
+      "0": 2942,
+      "1": 1547
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 118.63303184509277
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.9180218311427935,
+    "precision": 0.8685208596713021,
+    "recall": 0.8956975228161669,
+    "f1": 0.8818998716302953,
+    "distribution": {
+      "0": 2907,
+      "1": 1582
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 152.89640426635742
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.9182445979059924,
+    "precision": 0.8667504714016342,
+    "recall": 0.8989569752281616,
+    "f1": 0.88256,
+    "distribution": {
+      "0": 2898,
+      "1": 1591
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 200.9902000427246
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.5641025641025641,
+    "precision": 0.41583366653338666,
+    "recall": 0.6779661016949152,
+    "f1": 0.5154894671623296,
+    "distribution": {
+      "0": 1984,
+      "1": 2501
+    },
+    "degenerate": false,
+    "train_time_ms": 46.999454498291016,
+    "inf_time_ms": 2.9997825622558594,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.5615950100245043,
+    "precision": 0.36621454993834773,
+    "recall": 0.38722294654498046,
+    "f1": 0.376425855513308,
+    "distribution": {
+      "0": 2867,
+      "1": 1622
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 128.3724308013916
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.51459122298953,
+    "precision": 0.3677736777367774,
+    "recall": 0.5847457627118644,
+    "f1": 0.4515479486534105,
+    "distribution": {
+      "0": 2050,
+      "1": 2439
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 138.94200325012207
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.398752506126086,
+    "precision": 0.3527925195855446,
+    "recall": 0.910039113428944,
+    "f1": 0.5084684028410126,
+    "distribution": {
+      "0": 532,
+      "1": 3957
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 170.49217224121094
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 1,
+    "accuracy": 0.6414715719063545,
+    "precision": 0.3669064748201439,
+    "recall": 0.06649282920469361,
+    "f1": 0.11258278145695365,
+    "distribution": {
+      "0": 4207,
+      "1": 278
+    },
+    "degenerate": false,
+    "train_time_ms": 54.00419235229492,
+    "inf_time_ms": 3.0274391174316406,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.8363676731793961,
+    "precision": 0.9864559819413092,
+    "recall": 0.5465916197623515,
+    "f1": 0.703420523138833,
+    "distribution": {
+      "0": 3618,
+      "1": 886
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 175.29559135437012
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.8428063943161634,
+    "precision": 0.9837133550488599,
+    "recall": 0.5666041275797373,
+    "f1": 0.719047619047619,
+    "distribution": {
+      "0": 3583,
+      "1": 921
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 170.92370986938477
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.8461367673179396,
+    "precision": 0.9902597402597403,
+    "recall": 0.5722326454033771,
+    "f1": 0.7253269916765755,
+    "distribution": {
+      "0": 3580,
+      "1": 924
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 288.26069831848145
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 86.00497245788574,
+    "inf_time_ms": 3.5893917083740234,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.5404085257548845,
+    "precision": 0.385512882839086,
+    "recall": 0.4959349593495935,
+    "f1": 0.4338074398249453,
+    "distribution": {
+      "0": 2447,
+      "1": 2057
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 186.65528297424316
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.6338809946714032,
+    "precision": 0.44419642857142855,
+    "recall": 0.12445278298936835,
+    "f1": 0.19443087445041524,
+    "distribution": {
+      "0": 4056,
+      "1": 448
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 135.3929042816162
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.4114120781527531,
+    "precision": 0.3682364729458918,
+    "recall": 0.9193245778611632,
+    "f1": 0.5258451082096226,
+    "distribution": {
+      "0": 512,
+      "1": 3992
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 187.20650672912598
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 2,
+    "accuracy": 0.3557777777777778,
+    "precision": 0.3554913294797688,
+    "recall": 1.0,
+    "f1": 0.5245202558635395,
+    "distribution": {
+      "0": 2,
+      "1": 4498
+    },
+    "degenerate": false,
+    "train_time_ms": 47.000885009765625,
+    "inf_time_ms": 1.9655227661132812,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.9380930863081789,
+    "precision": 0.9584775086505191,
+    "recall": 0.866166353971232,
+    "f1": 0.9099868593955321,
+    "distribution": {
+      "0": 2981,
+      "1": 1445
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 134.83238220214844
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.9344780840488025,
+    "precision": 0.9198203976908275,
+    "recall": 0.8968105065666041,
+    "f1": 0.9081697276757441,
+    "distribution": {
+      "0": 2867,
+      "1": 1559
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 158.31637382507324
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.9417080885675554,
+    "precision": 0.9570552147239264,
+    "recall": 0.8780487804878049,
+    "f1": 0.9158512720156555,
+    "distribution": {
+      "0": 2959,
+      "1": 1467
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 176.86796188354492
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.37675260063319765,
+    "precision": 0.3664897299792292,
+    "recall": 0.9931207004377736,
+    "f1": 0.5354012137559002,
+    "distribution": {
+      "0": 89,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 61.90085411071777,
+    "inf_time_ms": 4.0225982666015625,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.5253050158156349,
+    "precision": 0.3759881422924901,
+    "recall": 0.47592245153220764,
+    "f1": 0.42009384487993373,
+    "distribution": {
+      "0": 2402,
+      "1": 2024
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 133.1796646118164
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.640307275192047,
+    "precision": 0.6206896551724138,
+    "recall": 0.01125703564727955,
+    "f1": 0.022113022113022112,
+    "distribution": {
+      "0": 4397,
+      "1": 29
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 125.16999244689941
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.4048802530501582,
+    "precision": 0.37478828937817565,
+    "recall": 0.9687304565353346,
+    "f1": 0.5404745289602233,
+    "distribution": {
+      "0": 293,
+      "1": 4133
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 255.3873062133789
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 3,
+    "accuracy": 0.5585707824513795,
+    "precision": 0.35473251028806585,
+    "recall": 0.2695434646654159,
+    "f1": 0.30632551528073915,
+    "distribution": {
+      "0": 3207,
+      "1": 1215
+    },
+    "degenerate": false,
+    "train_time_ms": 72.3409652709961,
+    "inf_time_ms": 2.000093460083008,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.9256562982572248,
+    "precision": 0.9204702627939142,
+    "recall": 0.8570508692852543,
+    "f1": 0.8876292097365789,
+    "distribution": {
+      "0": 3087,
+      "1": 1446
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 145.4639434814453
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.9351422898742554,
+    "precision": 0.9578181818181818,
+    "recall": 0.8480360592401803,
+    "f1": 0.8995901639344263,
+    "distribution": {
+      "0": 3158,
+      "1": 1375
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 172.1975803375244
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.9366865210677255,
+    "precision": 0.9716840536512668,
+    "recall": 0.8396651641983258,
+    "f1": 0.9008635578583765,
+    "distribution": {
+      "0": 3191,
+      "1": 1342
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 216.0947322845459
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.4952528151909914,
+    "precision": 0.38256968920217876,
+    "recall": 0.7688345138441726,
+    "f1": 0.5109114249037228,
+    "distribution": {
+      "0": 1408,
+      "1": 3121
+    },
+    "degenerate": false,
+    "train_time_ms": 52.002668380737305,
+    "inf_time_ms": 3.000020980834961,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.47915287888815355,
+    "precision": 0.35255474452554747,
+    "recall": 0.6220218931101095,
+    "f1": 0.4500349406009783,
+    "distribution": {
+      "0": 1793,
+      "1": 2740
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 136.08169555664062
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.5012133245091551,
+    "precision": 0.35896414342629485,
+    "recall": 0.580167417900837,
+    "f1": 0.4435146443514644,
+    "distribution": {
+      "0": 2023,
+      "1": 2510
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 169.1598892211914
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.35473196558570486,
+    "precision": 0.3462572837292694,
+    "recall": 0.9948486799742434,
+    "f1": 0.513715710723192,
+    "distribution": {
+      "0": 71,
+      "1": 4462
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 190.52600860595703
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 4,
+    "accuracy": 0.35394126738794435,
+    "precision": 0.3435149304764076,
+    "recall": 0.9703799098518996,
+    "f1": 0.5074074074074074,
+    "distribution": {
+      "0": 142,
+      "1": 4387
+    },
+    "degenerate": false,
+    "train_time_ms": 64.02993202209473,
+    "inf_time_ms": 2.9964447021484375,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.7358943577430972,
+    "precision": 0.013888888888888888,
+    "recall": 0.025,
+    "f1": 0.017857142857142856,
+    "distribution": {
+      "0": 689,
+      "1": 144
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 21.13032341003418
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.7406962785114045,
+    "precision": 0.027777777777777776,
+    "recall": 0.05,
+    "f1": 0.03571428571428571,
+    "distribution": {
+      "0": 689,
+      "1": 144
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 41.15414619445801
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.8595438175270108,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "distribution": {
+      "0": 796,
+      "1": 37
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 29.683828353881836
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.8383594692400482,
+    "precision": 0.05,
+    "recall": 0.0375,
+    "f1": 0.04285714285714286,
+    "distribution": {
+      "0": 769,
+      "1": 60
+    },
+    "degenerate": false,
+    "train_time_ms": 9.963750839233398,
+    "inf_time_ms": 1.035451889038086,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.7394957983193278,
+    "precision": 0.07975460122699386,
+    "recall": 0.1625,
+    "f1": 0.10699588477366255,
+    "distribution": {
+      "0": 670,
+      "1": 163
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 26.988983154296875
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.6254501800720288,
+    "precision": 0.03968253968253968,
+    "recall": 0.125,
+    "f1": 0.060240963855421686,
+    "distribution": {
+      "0": 581,
+      "1": 252
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 39.5505428314209
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.7695078031212484,
+    "precision": 0.040983606557377046,
+    "recall": 0.0625,
+    "f1": 0.04950495049504951,
+    "distribution": {
+      "0": 711,
+      "1": 122
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 36.00192070007324
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 2026,
+    "fold": 0,
+    "accuracy": 0.6779252110977081,
+    "precision": 0.05263157894736842,
+    "recall": 0.1375,
+    "f1": 0.07612456747404844,
+    "distribution": {
+      "0": 620,
+      "1": 209
+    },
+    "degenerate": false,
+    "train_time_ms": 15.001296997070312,
+    "inf_time_ms": 0.9939670562744141,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.8870144284128746,
+    "precision": 0.8435419440745673,
+    "recall": 0.8221933809214795,
+    "f1": 0.832730857706211,
+    "distribution": {
+      "0": 3003,
+      "1": 1502
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 149.9326229095459
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.8905660377358491,
+    "precision": 0.8512064343163539,
+    "recall": 0.8241401687216093,
+    "f1": 0.8374546653478404,
+    "distribution": {
+      "0": 3013,
+      "1": 1492
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 184.82184410095215
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.8703662597114318,
+    "precision": 0.8045830681094844,
+    "recall": 0.8202465931213497,
+    "f1": 0.8123393316195373,
+    "distribution": {
+      "0": 2934,
+      "1": 1571
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 152.8646945953369
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.578538102643857,
+    "precision": 0.43397626112759646,
+    "recall": 0.7592472420506164,
+    "f1": 0.5522775548737314,
+    "distribution": {
+      "0": 1805,
+      "1": 2696
+    },
+    "degenerate": false,
+    "train_time_ms": 45.218706130981445,
+    "inf_time_ms": 2.6597976684570312,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.49411764705882355,
+    "precision": 0.3701618578465869,
+    "recall": 0.6826735885788449,
+    "f1": 0.48003650467716175,
+    "distribution": {
+      "0": 1663,
+      "1": 2842
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 109.96055603027344
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.6235294117647059,
+    "precision": 0.41474147414741475,
+    "recall": 0.2446463335496431,
+    "f1": 0.30775510204081635,
+    "distribution": {
+      "0": 3596,
+      "1": 909
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 131.26039505004883
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.3425083240843507,
+    "precision": 0.34221630024428157,
+    "recall": 1.0,
+    "f1": 0.5099272005294507,
+    "distribution": {
+      "0": 2,
+      "1": 4503
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 150.08544921875
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.6376360808709176,
+    "precision": 0.34265734265734266,
+    "recall": 0.063595068137573,
+    "f1": 0.10727969348659004,
+    "distribution": {
+      "0": 4215,
+      "1": 286
+    },
+    "degenerate": false,
+    "train_time_ms": 41.001319885253906,
+    "inf_time_ms": 2.001047134399414,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.9086656270884385,
+    "precision": 0.839782345828295,
+    "recall": 0.9054758800521513,
+    "f1": 0.8713927227101631,
+    "distribution": {
+      "0": 2835,
+      "1": 1654
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 140.6095027923584
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.9113388282468255,
+    "precision": 0.8523573200992556,
+    "recall": 0.8956975228161669,
+    "f1": 0.8734901462174189,
+    "distribution": {
+      "0": 2877,
+      "1": 1612
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 111.11140251159668
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.9220316328803743,
+    "precision": 0.8819354838709678,
+    "recall": 0.8911342894393742,
+    "f1": 0.8865110246433203,
+    "distribution": {
+      "0": 2939,
+      "1": 1550
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 154.7558307647705
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.5641025641025641,
+    "precision": 0.41583366653338666,
+    "recall": 0.6779661016949152,
+    "f1": 0.5154894671623296,
+    "distribution": {
+      "0": 1984,
+      "1": 2501
+    },
+    "degenerate": false,
+    "train_time_ms": 43.981313705444336,
+    "inf_time_ms": 1.9998550415039062,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.5680552461572733,
+    "precision": 0.38526912181303113,
+    "recall": 0.44328552803129073,
+    "f1": 0.41224613519248254,
+    "distribution": {
+      "0": 2724,
+      "1": 1765
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 119.10748481750488
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.5551347738917354,
+    "precision": 0.3626112759643917,
+    "recall": 0.3983050847457627,
+    "f1": 0.3796210003106555,
+    "distribution": {
+      "0": 2804,
+      "1": 1685
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 188.16661834716797
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.40855424370683896,
+    "precision": 0.35624519107463454,
+    "recall": 0.9054758800521513,
+    "f1": 0.51131971286582,
+    "distribution": {
+      "0": 590,
+      "1": 3899
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 166.71466827392578
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 1,
+    "accuracy": 0.6343366778149386,
+    "precision": 0.3037037037037037,
+    "recall": 0.05345501955671447,
+    "f1": 0.09090909090909091,
+    "distribution": {
+      "0": 4215,
+      "1": 270
+    },
+    "degenerate": false,
+    "train_time_ms": 45.540571212768555,
+    "inf_time_ms": 3.027200698852539,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.8343694493783304,
+    "precision": 0.9919261822376009,
+    "recall": 0.5378361475922452,
+    "f1": 0.6974858069748581,
+    "distribution": {
+      "0": 3637,
+      "1": 867
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 123.15964698791504
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.8390319715808171,
+    "precision": 0.994343891402715,
+    "recall": 0.549718574108818,
+    "f1": 0.7080144985904149,
+    "distribution": {
+      "0": 3620,
+      "1": 884
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 164.33382034301758
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.8301509769094139,
+    "precision": 0.995249406175772,
+    "recall": 0.5240775484677924,
+    "f1": 0.6866038508807866,
+    "distribution": {
+      "0": 3662,
+      "1": 842
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 169.4493293762207
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 104.01439666748047,
+    "inf_time_ms": 1.9984245300292969,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.43539076376554176,
+    "precision": 0.3663646659116648,
+    "recall": 0.809255784865541,
+    "f1": 0.5043851101149873,
+    "distribution": {
+      "0": 972,
+      "1": 3532
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 208.30583572387695
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.46936056838365897,
+    "precision": 0.37344,
+    "recall": 0.7298311444652908,
+    "f1": 0.49407281964436917,
+    "distribution": {
+      "0": 1379,
+      "1": 3125
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 215.0399684906006
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.37455595026642985,
+    "precision": 0.3579757462686567,
+    "recall": 0.9599749843652282,
+    "f1": 0.5214880244606761,
+    "distribution": {
+      "0": 216,
+      "1": 4288
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 224.1976261138916
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 2,
+    "accuracy": 0.3557777777777778,
+    "precision": 0.3554913294797688,
+    "recall": 1.0,
+    "f1": 0.5245202558635395,
+    "distribution": {
+      "0": 2,
+      "1": 4498
+    },
+    "degenerate": false,
+    "train_time_ms": 46.00644111633301,
+    "inf_time_ms": 1.9724369049072266,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.9324446452779033,
+    "precision": 0.9270696452036794,
+    "recall": 0.8824265165728581,
+    "f1": 0.9041973726369753,
+    "distribution": {
+      "0": 2904,
+      "1": 1522
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 151.49521827697754
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.9349299593312246,
+    "precision": 0.9343936381709742,
+    "recall": 0.8818011257035647,
+    "f1": 0.9073359073359073,
+    "distribution": {
+      "0": 2917,
+      "1": 1509
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 253.02577018737793
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.9392227745142341,
+    "precision": 0.9380764163372859,
+    "recall": 0.890556597873671,
+    "f1": 0.9136990696182227,
+    "distribution": {
+      "0": 2908,
+      "1": 1518
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 242.49887466430664
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.37675260063319765,
+    "precision": 0.3664897299792292,
+    "recall": 0.9931207004377736,
+    "f1": 0.5354012137559002,
+    "distribution": {
+      "0": 89,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 84.14506912231445,
+    "inf_time_ms": 3.999471664428711,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.4401265250790782,
+    "precision": 0.3701624815361891,
+    "recall": 0.7836147592245153,
+    "f1": 0.5028089887640449,
+    "distribution": {
+      "0": 1041,
+      "1": 3385
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 156.9983959197998
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.6477632173520108,
+    "precision": 0.6149425287356322,
+    "recall": 0.066916823014384,
+    "f1": 0.12069937958262832,
+    "distribution": {
+      "0": 4252,
+      "1": 174
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 312.730073928833
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.3644374152733845,
+    "precision": 0.36229582577132485,
+    "recall": 0.9987492182614134,
+    "f1": 0.5317130014982521,
+    "distribution": {
+      "0": 18,
+      "1": 4408
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 236.79661750793457
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 3,
+    "accuracy": 0.5569877883310719,
+    "precision": 0.35294117647058826,
+    "recall": 0.2701688555347092,
+    "f1": 0.30605738575983,
+    "distribution": {
+      "0": 3198,
+      "1": 1224
+    },
+    "degenerate": false,
+    "train_time_ms": 59.090614318847656,
+    "inf_time_ms": 2.999544143676758,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.9395543789984557,
+    "precision": 0.9754646840148699,
+    "recall": 0.8448164842240824,
+    "f1": 0.9054520358868184,
+    "distribution": {
+      "0": 3188,
+      "1": 1345
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 216.79139137268066
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.9227884403264945,
+    "precision": 0.9055967633175994,
+    "recall": 0.8647778493238892,
+    "f1": 0.8847167325428195,
+    "distribution": {
+      "0": 3050,
+      "1": 1483
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 273.8683223724365
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.9375689388925657,
+    "precision": 0.9608127721335269,
+    "recall": 0.8525434642627173,
+    "f1": 0.9034459228932105,
+    "distribution": {
+      "0": 3155,
+      "1": 1378
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 342.8184986114502
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.4952528151909914,
+    "precision": 0.38256968920217876,
+    "recall": 0.7688345138441726,
+    "f1": 0.5109114249037228,
+    "distribution": {
+      "0": 1408,
+      "1": 3121
+    },
+    "degenerate": false,
+    "train_time_ms": 95.83091735839844,
+    "inf_time_ms": 8.00180435180664,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.5140083829693359,
+    "precision": 0.3503683241252302,
+    "recall": 0.4900193174500966,
+    "f1": 0.40859060402684566,
+    "distribution": {
+      "0": 2361,
+      "1": 2172
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 260.00094413757324
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.4630487535848224,
+    "precision": 0.35931012456084316,
+    "recall": 0.7244043786220219,
+    "f1": 0.4803586678052946,
+    "distribution": {
+      "0": 1402,
+      "1": 3131
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 186.14912033081055
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.34811383189940437,
+    "precision": 0.3433869526362824,
+    "recall": 0.9896973599484868,
+    "f1": 0.5098689666611378,
+    "distribution": {
+      "0": 57,
+      "1": 4476
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 207.3671817779541
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 4,
+    "accuracy": 0.35570766173548246,
+    "precision": 0.34485110252330076,
+    "recall": 0.9768190598840953,
+    "f1": 0.509744623655914,
+    "distribution": {
+      "0": 130,
+      "1": 4399
+    },
+    "degenerate": false,
+    "train_time_ms": 65.99903106689453,
+    "inf_time_ms": 3.068208694458008,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7707082833133253,
+    "precision": 0.008849557522123894,
+    "recall": 0.0125,
+    "f1": 0.010362694300518135,
+    "distribution": {
+      "0": 720,
+      "1": 113
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 37.34302520751953
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7226890756302521,
+    "precision": 0.22743682310469315,
+    "recall": 0.7875,
+    "f1": 0.35294117647058826,
+    "distribution": {
+      "0": 556,
+      "1": 277
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 35.555362701416016
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7959183673469388,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "distribution": {
+      "0": 743,
+      "1": 90
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 46.09370231628418
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.8383594692400482,
+    "precision": 0.05,
+    "recall": 0.0375,
+    "f1": 0.04285714285714286,
+    "distribution": {
+      "0": 769,
+      "1": 60
+    },
+    "degenerate": false,
+    "train_time_ms": 19.00196075439453,
+    "inf_time_ms": 0.99945068359375,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7839135654261705,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "distribution": {
+      "0": 733,
+      "1": 100
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 49.04580116271973
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7635054021608644,
+    "precision": 0.05343511450381679,
+    "recall": 0.0875,
+    "f1": 0.06635071090047394,
+    "distribution": {
+      "0": 702,
+      "1": 131
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 38.555145263671875
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.8235294117647058,
+    "precision": 0.014492753623188406,
+    "recall": 0.0125,
+    "f1": 0.013422818791946308,
+    "distribution": {
+      "0": 764,
+      "1": 69
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 51.99885368347168
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 7,
+    "fold": 0,
+    "accuracy": 0.7020506634499397,
+    "precision": 0.0845771144278607,
+    "recall": 0.2125,
+    "f1": 0.12099644128113879,
+    "distribution": {
+      "0": 628,
+      "1": 201
+    },
+    "degenerate": false,
+    "train_time_ms": 16.000747680664062,
+    "inf_time_ms": 1.003265380859375,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.9003329633740289,
+    "precision": 0.8786407766990292,
+    "recall": 0.8221933809214795,
+    "f1": 0.8494803888702648,
+    "distribution": {
+      "0": 3063,
+      "1": 1442
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 205.1379680633545
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.8994450610432853,
+    "precision": 0.8798882681564246,
+    "recall": 0.81765087605451,
+    "f1": 0.8476286579212916,
+    "distribution": {
+      "0": 3073,
+      "1": 1432
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 247.07508087158203
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.8847946725860155,
+    "precision": 0.8370712401055409,
+    "recall": 0.8234912394548994,
+    "f1": 0.830225711481845,
+    "distribution": {
+      "0": 2989,
+      "1": 1516
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 226.99952125549316
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.578538102643857,
+    "precision": 0.43397626112759646,
+    "recall": 0.7592472420506164,
+    "f1": 0.5522775548737314,
+    "distribution": {
+      "0": 1805,
+      "1": 2696
+    },
+    "degenerate": false,
+    "train_time_ms": 67.00015068054199,
+    "inf_time_ms": 6.018877029418945,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.4996670366259711,
+    "precision": 0.37853492333901195,
+    "recall": 0.7209604153147307,
+    "f1": 0.4964253798033959,
+    "distribution": {
+      "0": 1570,
+      "1": 2935
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 265.1996612548828
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.6643729189789124,
+    "precision": 0.5262206148282098,
+    "recall": 0.18883841661258924,
+    "f1": 0.27793696275071633,
+    "distribution": {
+      "0": 3952,
+      "1": 553
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 175.9955883026123
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.36537180910099887,
+    "precision": 0.34794646977388094,
+    "recall": 0.9785853341985724,
+    "f1": 0.5133617021276595,
+    "distribution": {
+      "0": 171,
+      "1": 4334
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 234.12799835205078
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.6325261053099311,
+    "precision": 0.3044982698961938,
+    "recall": 0.05710577547047372,
+    "f1": 0.09617486338797815,
+    "distribution": {
+      "0": 4212,
+      "1": 289
+    },
+    "degenerate": false,
+    "train_time_ms": 79.99992370605469,
+    "inf_time_ms": 3.999471664428711,
+    "auto_direction": "high",
+    "auto_threshold": -0.3985185916839477
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.9126754288260192,
+    "precision": 0.8511685116851169,
+    "recall": 0.9022164276401564,
+    "f1": 0.8759493670886076,
+    "distribution": {
+      "0": 2863,
+      "1": 1626
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 176.25713348388672
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.9135664958788149,
+    "precision": 0.8554590570719603,
+    "recall": 0.8989569752281616,
+    "f1": 0.8766687857596949,
+    "distribution": {
+      "0": 2877,
+      "1": 1612
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 237.0927333831787
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.9182445979059924,
+    "precision": 0.8649155722326454,
+    "recall": 0.9015645371577575,
+    "f1": 0.8828598787105011,
+    "distribution": {
+      "0": 2890,
+      "1": 1599
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 314.00012969970703
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.5641025641025641,
+    "precision": 0.41583366653338666,
+    "recall": 0.6779661016949152,
+    "f1": 0.5154894671623296,
+    "distribution": {
+      "0": 1984,
+      "1": 2501
+    },
+    "degenerate": false,
+    "train_time_ms": 81.99906349182129,
+    "inf_time_ms": 3.9980411529541016,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.575629316106037,
+    "precision": 0.3744075829383886,
+    "recall": 0.3604954367666232,
+    "f1": 0.36731982729990037,
+    "distribution": {
+      "0": 3012,
+      "1": 1477
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 179.46219444274902
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.5647137447092894,
+    "precision": 0.3909657320872274,
+    "recall": 0.4908735332464146,
+    "f1": 0.4352601156069364,
+    "distribution": {
+      "0": 2563,
+      "1": 1926
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 226.99975967407227
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.4778347070617064,
+    "precision": 0.370275464445868,
+    "recall": 0.7535853976531942,
+    "f1": 0.4965635738831615,
+    "distribution": {
+      "0": 1367,
+      "1": 3122
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 235.08119583129883
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 1,
+    "accuracy": 0.6465997770345596,
+    "precision": 0.4135593220338983,
+    "recall": 0.07953063885267275,
+    "f1": 0.13340623291416073,
+    "distribution": {
+      "0": 4190,
+      "1": 295
+    },
+    "degenerate": false,
+    "train_time_ms": 69.51665878295898,
+    "inf_time_ms": 2.9718875885009766,
+    "auto_direction": "high",
+    "auto_threshold": -0.29230406813461635
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.8374777975133215,
+    "precision": 0.9800664451827242,
+    "recall": 0.5534709193245778,
+    "f1": 0.7074340527577938,
+    "distribution": {
+      "0": 3601,
+      "1": 903
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 167.89484024047852
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.8385879218472468,
+    "precision": 0.983370288248337,
+    "recall": 0.5547217010631644,
+    "f1": 0.7093162734906038,
+    "distribution": {
+      "0": 3602,
+      "1": 902
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 216.03012084960938
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.8410301953818827,
+    "precision": 0.9911012235817576,
+    "recall": 0.5572232645403377,
+    "f1": 0.7133706965572458,
+    "distribution": {
+      "0": 3605,
+      "1": 899
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 292.6194667816162
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 67.99983978271484,
+    "inf_time_ms": 3.999948501586914,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.4691385435168739,
+    "precision": 0.37648159700561445,
+    "recall": 0.7548467792370231,
+    "f1": 0.5023933402705515,
+    "distribution": {
+      "0": 1298,
+      "1": 3206
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 196.02727890014648
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.5324156305506217,
+    "precision": 0.38565629228687415,
+    "recall": 0.5347091932457786,
+    "f1": 0.4481132075471698,
+    "distribution": {
+      "0": 2287,
+      "1": 2217
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 208.85634422302246
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.37633214920071045,
+    "precision": 0.3592368543508609,
+    "recall": 0.965603502188868,
+    "f1": 0.5236560963201627,
+    "distribution": {
+      "0": 206,
+      "1": 4298
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 231.15301132202148
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 2,
+    "accuracy": 0.35555555555555557,
+    "precision": 0.3554123138475217,
+    "recall": 1.0,
+    "f1": 0.5244342407346672,
+    "distribution": {
+      "0": 1,
+      "1": 4499
+    },
+    "degenerate": false,
+    "train_time_ms": 61.62738800048828,
+    "inf_time_ms": 4.000663757324219,
+    "auto_direction": "high",
+    "auto_threshold": -7.347943823148687
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.9419340262087664,
+    "precision": 0.9583333333333334,
+    "recall": 0.8774233896185115,
+    "f1": 0.9160953313744695,
+    "distribution": {
+      "0": 2962,
+      "1": 1464
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 162.0016098022461
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.9394487121554451,
+    "precision": 0.9451505016722408,
+    "recall": 0.8836772983114447,
+    "f1": 0.9133807369101486,
+    "distribution": {
+      "0": 2931,
+      "1": 1495
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 220.6878662109375
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.9401265250790781,
+    "precision": 0.9393939393939394,
+    "recall": 0.8918073796122576,
+    "f1": 0.9149823548283607,
+    "distribution": {
+      "0": 2908,
+      "1": 1518
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 240.99969863891602
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.37675260063319765,
+    "precision": 0.3664897299792292,
+    "recall": 0.9931207004377736,
+    "f1": 0.5354012137559002,
+    "distribution": {
+      "0": 89,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 64.52155113220215,
+    "inf_time_ms": 2.998828887939453,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.5603253502033438,
+    "precision": 0.41188420518029456,
+    "recall": 0.5071919949968731,
+    "f1": 0.4545964125560538,
+    "distribution": {
+      "0": 2457,
+      "1": 1969
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 181.0014247894287
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.5686850429281518,
+    "precision": 0.3916083916083916,
+    "recall": 0.35021888680425267,
+    "f1": 0.36975899636843845,
+    "distribution": {
+      "0": 2996,
+      "1": 1430
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 200.09970664978027
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.3737008585630366,
+    "precision": 0.3646434341103162,
+    "recall": 0.9881175734834271,
+    "f1": 0.5327039784221174,
+    "distribution": {
+      "0": 93,
+      "1": 4333
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 297.03497886657715
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 3,
+    "accuracy": 0.5712347354138398,
+    "precision": 0.3787755102040816,
+    "recall": 0.29018136335209505,
+    "f1": 0.3286118980169972,
+    "distribution": {
+      "0": 3197,
+      "1": 1225
+    },
+    "degenerate": false,
+    "train_time_ms": 78.51982116699219,
+    "inf_time_ms": 3.9997100830078125,
+    "auto_direction": "high",
+    "auto_threshold": -2.8159105930045913
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.9373483344363556,
+    "precision": 0.9745699326851159,
+    "recall": 0.8390212491951062,
+    "f1": 0.9017301038062284,
+    "distribution": {
+      "0": 3196,
+      "1": 1337
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 196.77376747131348
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.9338186631369954,
+    "precision": 0.9523465703971119,
+    "recall": 0.8493238892466195,
+    "f1": 0.8978897208985704,
+    "distribution": {
+      "0": 3148,
+      "1": 1385
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 203.0501365661621
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.9395543789984557,
+    "precision": 0.9841029523088569,
+    "recall": 0.8370895041854475,
+    "f1": 0.9046624913013221,
+    "distribution": {
+      "0": 3212,
+      "1": 1321
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 282.0417881011963
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.4952528151909914,
+    "precision": 0.38256968920217876,
+    "recall": 0.7688345138441726,
+    "f1": 0.5109114249037228,
+    "distribution": {
+      "0": 1408,
+      "1": 3121
+    },
+    "degenerate": false,
+    "train_time_ms": 68.06421279907227,
+    "inf_time_ms": 3.0333995819091797,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.4303992940657401,
+    "precision": 0.3513435423288067,
+    "recall": 0.7830006439150032,
+    "f1": 0.4850418827283606,
+    "distribution": {
+      "0": 1072,
+      "1": 3461
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 198.52352142333984
+  },
+  {
+    "model": "gru",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.5040811824398853,
+    "precision": 0.3696060037523452,
+    "recall": 0.6342562781712814,
+    "f1": 0.4670459933617828,
+    "distribution": {
+      "0": 1868,
+      "1": 2665
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 204.20098304748535
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.35473196558570486,
+    "precision": 0.3459811405478222,
+    "recall": 0.9922730199613651,
+    "f1": 0.5130680872315632,
+    "distribution": {
+      "0": 79,
+      "1": 4454
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 218.51491928100586
+  },
+  {
+    "model": "automata",
+    "dataset": "SKAB",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 4,
+    "accuracy": 0.35526606314859793,
+    "precision": 0.343628460306566,
+    "recall": 0.9671603348358017,
+    "f1": 0.5070898041863605,
+    "distribution": {
+      "0": 158,
+      "1": 4371
+    },
+    "degenerate": false,
+    "train_time_ms": 63.513994216918945,
+    "inf_time_ms": 3.0014514923095703,
+    "auto_direction": "low",
+    "auto_threshold": -0.011993499962423406
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.680672268907563,
+    "precision": 0.025510204081632654,
+    "recall": 0.0625,
+    "f1": 0.036231884057971016,
+    "distribution": {
+      "0": 637,
+      "1": 196
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 31.000137329101562
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.6974789915966386,
+    "precision": 0.03260869565217391,
+    "recall": 0.075,
+    "f1": 0.045454545454545456,
+    "distribution": {
+      "0": 649,
+      "1": 184
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 30.956745147705078
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.7418967587034814,
+    "precision": 0.02127659574468085,
+    "recall": 0.0375,
+    "f1": 0.027149321266968326,
+    "distribution": {
+      "0": 692,
+      "1": 141
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 43.10250282287598
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "original",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.8383594692400482,
+    "precision": 0.05,
+    "recall": 0.0375,
+    "f1": 0.04285714285714286,
+    "distribution": {
+      "0": 769,
+      "1": 60
+    },
+    "degenerate": false,
+    "train_time_ms": 13.998985290527344,
+    "inf_time_ms": 0.0,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  },
+  {
+    "model": "lstm",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.8427370948379351,
+    "precision": 0.03636363636363636,
+    "recall": 0.025,
+    "f1": 0.02962962962962963,
+    "distribution": {
+      "0": 778,
+      "1": 55
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 26.57008171081543
+  },
+  {
+    "model": "gru",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.8343337334933973,
+    "precision": 0.3273809523809524,
+    "recall": 0.6875,
+    "f1": 0.4435483870967742,
+    "distribution": {
+      "0": 665,
+      "1": 168
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 31.483173370361328
+  },
+  {
+    "model": "cnn1d",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.7755102040816326,
+    "precision": 0.02654867256637168,
+    "recall": 0.0375,
+    "f1": 0.031088082901554404,
+    "distribution": {
+      "0": 720,
+      "1": 113
+    },
+    "degenerate": false,
+    "train_time_ms": 0,
+    "inf_time_ms": 36.000728607177734
+  },
+  {
+    "model": "automata",
+    "dataset": "BATADAL",
+    "scenario": "gaussian_noise",
+    "seed": 999,
+    "fold": 0,
+    "accuracy": 0.7334137515078407,
+    "precision": 0.07272727272727272,
+    "recall": 0.15,
+    "f1": 0.09795918367346938,
+    "distribution": {
+      "0": 664,
+      "1": 165
+    },
+    "degenerate": false,
+    "train_time_ms": 11.990785598754883,
+    "inf_time_ms": 0.0,
+    "auto_direction": "low",
+    "auto_threshold": -2.1302391889579746
+  }
+]
