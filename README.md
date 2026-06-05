@@ -116,7 +116,7 @@ Anomali kararı için iki yönlü (double-sided) bir validation optimizasyonu uy
 
 ---
 
-## IV. Bilinmeyen Örüntü (Unseen Pattern) Yönetimi
+## V. Bilinmeyen Örüntü (Unseen Pattern) Yönetimi
 
 Test verisinde, eğitim aşamasında hiç karşılaşılmamış bir SAX sembol dizisiyle (unseen pattern) karşılaşıldığında otomata modelinin çökmesini önlemek ve akışı deterministik bir şekilde sürdürmek amacıyla **Levenshtein (Edit Distance)** tabanlı bir `UnseenHandler` tasarlanmıştır.
 
@@ -135,7 +135,7 @@ Modelin genellenebilirliğini ve unseen yönetiminin performansını test etmek 
 
 ---
 
-## V. Olasılıksal Açıklanabilirlik Modülü (Explainability)
+## VI. Olasılıksal Açıklanabilirlik Modülü (Explainability)
 
 Geliştirilen açıklanabilirlik modülü, kararları tamamen olasılıksal otomatın iç parametrelerine dayandırarak deterministik ve matematiksel gerekçeler sunar.
 
@@ -171,7 +171,7 @@ Açıklama çıktısının insan-okunur tablo formatı:
 
 ---
 
-## VI. Deneysel Tasarım (Experimental Design)
+## VII. Deneysel Tasarım (Experimental Design)
 
 Deneyler, sonuçların istatistiksel olarak anlamlı ve karşılaştırılabilir olması için katı protokoller çerçevesinde yürütülmüştür:
 
@@ -187,7 +187,7 @@ Deneyler, sonuçların istatistiksel olarak anlamlı ve karşılaştırılabilir
 
 ---
 
-## VII. Sonuçlar (Results)
+## VIII. Sonuçlar (Results)
 
 Elde edilen deneysel sonuçlar aşağıda sunulmuştur. Raporlanan F1-skorları ve standart sapmalar 5 seed (ve SKAB için 5-fold, toplam n=25) üzerinden elde edilmiştir.
 
@@ -286,7 +286,7 @@ BATADAL veri seti zaman sıralı bölünmüş olduğundan (ilk %60 = eğitim, %8
 
 ---
 
-## VIII. İstatistiki Anlamlılık Testleri (Statistical Significance)
+## IX. İstatistiki Anlamlılık Testleri (Statistical Significance)
 
 ### 1. Wilcoxon Signed-Rank Testi (F1-score Bazlı)
 Model sonuçları arasındaki farkların rastlantısal olup olmadığını belirlemek amacıyla n=25 (SKAB için 5 seed × 5 fold) F1 skorları üzerinden Wilcoxon Signed-Rank testi uygulanmıştır ($\alpha = 0.05$):
@@ -304,7 +304,7 @@ Modellerin hata matrislerinin karşılıklı oranlarını analiz eden McNemar te
 
 ---
 
-## IX. Görselleştirmeler (Visualizations)
+## X. Görselleştirmeler (Visualizations)
 
 Aşağıdaki grafikler modellerin hata yapılarını, parametre duyarlılıklarını ve otomatın iç yapısını görselleştirmektedir.
 
@@ -360,7 +360,7 @@ Eğitilen olasılıksal otomatın iç durumları ve geçiş olasılıklarının 
 
 ---
 
-## X. Tartışma (Academic Discussion)
+## XI. Tartışma (Academic Discussion)
 
 ### 1. Kara Kutu (Black-Box) Modeller vs Yorumlanabilir Olasılıksal Otomata
 Deney sonuçları, derin öğrenme modellerinin anomali tespiti doğruluğunda (F1) belirgin şekilde daha başarılı olduğunu ortaya koymaktadır. Ancak bu modellerin karar mekanizmaları kullanıcılar için tamamen kapalıdır. Öte yandan olasılıksal otomata modeli, sembolik temsil sayesinde her kararı adım adım geçiş olasılıkları cinsinden raporlayabilmektedir. Bu, özellikle nükleer santraller veya su dağıtım ağları gibi kritik altyapılarda "neden anomali alarmı verildi" sorusunun yanıtlanması açısından büyük bir avantajdır. Otomatların diğer bir kritik üstünlüğü ise **çıkarım hızıdır**. CPU üzerinde mikro saniyeler seviyesinde çıkarım yapabilen otomatlar, GPU kısıtı olan gömülü sistemlerde derin öğrenme modellerine göre çok daha fizibildir.
@@ -375,13 +375,13 @@ Olasılıksal otomata, düşük yol olasılığına sahip durum dizilerini anoma
 
 ---
 
-## XI. Sonuç (Conclusion)
+## XII. Sonuç (Conclusion)
 
 Bu çalışmada, zaman serisi anomali tespiti probleminde kara kutu derin öğrenme ile sembolik olasılıksal otomata modelleri tüm yönleriyle karşılaştırılmıştır. Derin öğrenme modelleri F1 performansı açısından açık ara önde olmakla birlikte, gürültüye duyarlılıkları ve yüksek hesaplama maliyetleri birer dezavantajdır. Olasılıksal otomata modeli ise düşük hesaplama maliyeti, yüksek çıkarım hızı ve olasılıksal açıklanabilirlik özellikleri ile dikkat çekmektedir. Gelecekteki çalışmalarda çok boyutlu verileri tek boyuta indirmeden doğrudan işleyebilen çok boyutlu otomata modelleri (Multi-dimensional Automata) veya derin öğrenme modellerinin üzerine inşa edilecek melez sembolik-açıklayıcı katmanlar üzerinde durulması önerilmektedir.
 
 ---
 
-## XII. Kaynakça (References)
+## XIII. Kaynakça (References)
 
 1. Katser, I. ve Kozitsin, V. (2021). *Skoltech Anomaly Benchmark (SKAB)*. [GitHub Repository](https://github.com/waico/SKAB). DOI: 10.34740/kaggle/dsv/1693952
 2. Taormina, R. ve diğerleri (2018). *The Battle of the Attack Detection Algorithms: Disclosing Cyber Attacks on Water Distribution Networks*. Journal of Water Resources Planning and Management, 144(8).
