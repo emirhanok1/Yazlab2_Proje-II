@@ -10,7 +10,7 @@ Projede modellerin performansı, gürültüye karşı dayanıklılığı (robust
 
 ## I. Özet (Abstract)
 
-Modern endüstriyel sistemler, IoT altyapıları ve siber-fiziksel sistemler (CPS) sürekli olarak çok boyutlu zaman serisi verileri üretmektedir. Bu sistemlerde meydana gelen ekipman arızaları veya siber saldırıların erken tespiti hayati öneme sahiptir. Bu çalışmada, gözetimli derin öğrenme modelleri (LSTM, GRU, 1D-CNN) ile gözetimsiz sembolik temsil tabanlı olasılıksal otomata modeli karşılaştırılmıştır. SKAB (Water Pump Sensor Dataset) ve BATADAL (Water Distribution System Attacks) veri setleri kullanılarak gerçekleştirilen deneylerde, derin öğrenme modellerinin SKAB üzerinde yüksek F1 skoruna ($F1 \approx 0.84$) ulaştığı, buna karşın kararlarının arkasındaki fiziksel ve matematiksel nedenleri açıklayamadığı görülmüştür. Olasılıksal otomata modeli ise daha düşük bir genel performans sergilemekle birlikte ($F1 \approx 0.52$), her bir tahmin için geçiş olasılıklarına dayalı matematiksel açıklamalar üretebilmekte ve çıkarım aşamasında derin öğrenme modellerine kıyasla **~40 ila 60 kat daha hızlı** çalışmaktadır. İki yaklaşım arasındaki performans farkları Wilcoxon Signed-Rank ($p < 0.05$) ve McNemar ($p < 0.05$) testleri ile doğrulanmıştır. Gürültü analizi sonuçları, derin öğrenme modellerinin gürültülü ortamlarda ciddi performans kaybı yaşadığını, otomatların ise sembolik soyutlama yeteneği sayesinde daha dirençli kalabildiğini göstermiştir.
+Modern endüstriyel sistemler, IoT altyapıları ve siber-fiziksel sistemler (CPS) sürekli olarak çok boyutlu zaman serisi verileri üretmektedir. Bu sistemlerde meydana gelen ekipman arızaları veya siber saldırıların erken tespiti hayati öneme sahiptir. Bu çalışmada, gözetimli derin öğrenme modelleri (LSTM, GRU, 1D-CNN) ile yarı-gözetimli (eşik seçimli) sembolik temsil tabanlı olasılıksal otomata modeli karşılaştırılmıştır. SKAB (Water Pump Sensor Dataset) ve BATADAL (Water Distribution System Attacks) veri setleri kullanılarak gerçekleştirilen deneylerde, derin öğrenme modellerinin SKAB üzerinde yüksek F1 skoruna ($F1 \approx 0.84$) ulaştığı, buna karşın kararlarının arkasındaki fiziksel ve matematiksel nedenleri açıklayamadığı görülmüştür. Olasılıksal otomata modeli ise daha düşük bir genel performans sergilemekle birlikte ($F1 \approx 0.52$), her bir tahmin için geçiş olasılıklarına dayalı matematiksel açıklamalar üretebilmekte ve çıkarım aşamasında derin öğrenme modellerine kıyasla **~40 ila 60 kat daha hızlı** çalışmaktadır. İki yaklaşım arasındaki performans farkları Wilcoxon Signed-Rank ($p < 0.05$) ve McNemar ($p < 0.05$) testleri ile doğrulanmıştır. Gürültü analizi sonuçları, derin öğrenme modellerinin gürültülü ortamlarda ciddi performans kaybı yaşadığını, otomatların ise sembolik soyutlama yeteneği sayesinde daha dirençli kalabildiğini göstermiştir.
 
 ---
 
@@ -88,7 +88,7 @@ $$\text{pos\_weight} = \frac{N_{\text{neg}}}{N_{\text{pos}}}$$
 Eğitim sürecinde Early Stopping mekanizması kullanılmış; validation kaybı 5 epoch boyunca iyileşme göstermediğinde eğitim sonlandırılarak en iyi model ağırlıkları geri yüklenmiştir.
 
 ### 2. Olasılıksal Otomata Modeli (Probabilistic Automata)
-Olasılıksal otomata modeli, zaman serisini sembolik bir diziye dönüştürüp durum geçiş olasılıklarını öğrenen gözetimsiz bir yapıdır. Süreç şu adımlardan oluşur:
+Olasılıksal otomata modeli, zaman serisini sembolik bir diziye dönüştürüp durum geçiş olasılıklarını öğrenen, anomali kararını ise çift yönlü eşik optimizasyonu ile veren yarı-gözetimli bir yapıdır. Süreç şu adımlardan oluşur:
 
 ```mermaid
 graph LR
@@ -191,14 +191,31 @@ Deneyler, sonuçların istatistiksel olarak anlamlı ve karşılaştırılabilir
 
 Elde edilen deneysel sonuçlar aşağıda sunulmuştur. Raporlanan F1-skorları ve standart sapmalar 5 seed (ve SKAB için 5-fold, toplam n=25) üzerinden elde edilmiştir.
 
-### Tablo 1: Model Performansı ve Stabilitesi (Ortalama F1-score ± Standart Sapma)
+### Tablo 1: Model Performansı ve Stabilitesi (Ortalama ± Standart Sapma)
 
-| Model | SKAB (F1-score ± Std) | BATADAL (F1-score ± Std) |
-| :--- | :---: | :---: |
-| **LSTM** | $0.8445 \pm 0.0742$ | $0.0317 \pm 0.0153$ |
-| **GRU** | $0.8468 \pm 0.0728$ | $0.1857 \pm 0.1813$ |
-| **1D-CNN** | $0.8450 \pm 0.0751$ | $0.0211 \pm 0.0178$ |
-| **Automata** | $0.5277 \pm 0.0149$ | $0.0429 \pm 0.0000$ |
+**A. SKAB Veri Seti (Original)**
+| Model | Accuracy | Precision | Recall | F1-Score |
+| :--- | :---: | :---: | :---: | :---: |
+| **LSTM** | $0.9016 \pm 0.0378$ | $0.9161 \pm 0.0580$ | $0.7992 \pm 0.1296$ | $0.8445 \pm 0.0757$ |
+| **GRU** | $0.9031 \pm 0.0371$ | $0.9187 \pm 0.0571$ | $0.8010 \pm 0.1280$ | $0.8468 \pm 0.0743$ |
+| **1D-CNN** | $0.9015 \pm 0.0395$ | $0.9150 \pm 0.0680$ | $0.8019 \pm 0.1297$ | $0.8450 \pm 0.0767$ |
+| **Automata** | $0.4740 \pm 0.0946$ | $0.3909 \pm 0.0303$ | $0.8398 \pm 0.1345$ | $0.5277 \pm 0.0152$ |
+
+**B. BATADAL Veri Seti (Original)**
+| Model | Accuracy | Precision | Recall | F1-Score |
+| :--- | :---: | :---: | :---: | :---: |
+| **LSTM** | $0.7023 \pm 0.0510$ | $0.0226 \pm 0.0108$ | $0.0550 \pm 0.0360$ | $0.0317 \pm 0.0171$ |
+| **GRU** | $0.7304 \pm 0.0362$ | $0.1236 \pm 0.1315$ | $0.3800 \pm 0.4376$ | $0.1857 \pm 0.2027$ |
+| **1D-CNN** | $0.7854 \pm 0.0460$ | $0.0172 \pm 0.0164$ | $0.0275 \pm 0.0256$ | $0.0211 \pm 0.0199$ |
+| **Automata** | $0.8384 \pm 0.0000$ | $0.0500 \pm 0.0000$ | $0.0375 \pm 0.0000$ | $0.0429 \pm 0.0000$ |
+
+### Tablo 1b: SKAB Fold-Bazlı F1 Performansı (Original)
+| Model | Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **LSTM** | 0.8409 | 0.8720 | 0.7049 | 0.9107 | 0.8941 |
+| **GRU** | 0.8358 | 0.8769 | 0.7114 | 0.9131 | 0.8967 |
+| **1D-CNN** | 0.8183 | 0.8843 | 0.7104 | 0.9117 | 0.9003 |
+| **Automata**| 0.5523 | 0.5155 | 0.5244 | 0.5354 | 0.5109 |
 
 > [!NOTE]
 > **BATADAL'da DL Modellerinin Düşük F1 Skorları:** Derin öğrenme modelleri BATADAL üzerinde yüksek doğruluk (Accuracy > %70) vermesine rağmen F1 skorları oldukça düşüktür. Bu durum, veri setindeki anomali sınıfının aşırı azlığından (%5.2) ve modellerin çoğunluk sınıfına yönelmesinden (degenerate behavior sınırında tahmin) kaynaklanmaktadır. GRU modeli, $0.1857 \pm 0.1813$ F1 skoru ile derin öğrenme modelleri arasında en yüksek performansı göstermiş ancak yüksek varyansa sahip olmuştur.
@@ -257,17 +274,15 @@ BATADAL veri seti zaman sıralı bölünmüş olduğundan (ilk %60 = eğitim, %8
 
 ### Tablo 5: Modellerin Çalışma Süresi (Runtime) Karşılaştırması
 
-| Model | SKAB Çıkarım (Inference) Süresi | BATADAL Çıkarım (Inference) Süresi | SKAB Eğitim (Training) Süresi | BATADAL Eğitim (Training) Süresi |
+| Model | SKAB Eğitim Süresi | SKAB Çıkarım Süresi | BATADAL Eğitim Süresi | BATADAL Çıkarım Süresi |
 | :--- | :---: | :---: | :---: | :---: |
-| **LSTM** | 152.5 ms | 30.7 ms | *Ölçülemedi* | *Ölçülemedi* |
-| **GRU** | 185.2 ms | 31.5 ms | *Ölçülemedi* | *Ölçülemedi* |
-| **1D-CNN** | 212.6 ms | 36.7 ms | *Ölçülemedi* | *Ölçülemedi* |
-| **Automata** | **3.5 ms** | **0.6 ms** | 62.7 ms | 13.8 ms |
+| **LSTM** | 22.5 s | 152.5 ms | 1.37 s | 30.7 ms |
+| **GRU** | 13.6 s | 185.2 ms | 1.83 s | 31.5 ms |
+| **1D-CNN** | 12.9 s | 212.6 ms | 1.84 s | 36.7 ms |
+| **Automata** | **0.05 s** | **3.5 ms** | **0.01 s** | **0.6 ms** |
 
 > [!IMPORTANT]
-> \* **DL Eğitim Süreleri Raporu:** Eğitim sürelerinin derin öğrenme modelleri için ölçülememe nedeni, `runner.py` dosyasındaki loglama fonksiyonunun model eğitici sınıfındaki `total_train_time_ms` özniteliğini araması ancak kod tabanında bu ölçüm değişkeninin bulunmamasından kaynaklanan sistemsel bir uyuşmazlıktır. Bu sebeple derin öğrenme eğitim süreleri `0.0 ms` olarak kaydedilmiştir.
->
-> **Çıkarım Hızı Karşılaştırması:** Olasılıksal otomata modeli, GPU ihtiyacı duymaksızın CPU üzerinde çıkarım yaparken derin öğrenme modellerinden **40-60 kat daha hızlı** sonuç üretmektedir (SKAB: 3.5 ms vs GRU 185.2 ms). Bu durum, otomatın anlık kararları sadece bir sözlük arama (look-up) ve basit olasılık çarpım işlemleriyle almasından kaynaklanır.
+> **Çıkarım Hızı Karşılaştırması:** Olasılıksal otomata modeli, GPU ihtiyacı duymaksızın CPU üzerinde çalışırken derin öğrenme modellerine kıyasla eğitim aşamasında devasa bir hız farkı yaratmakta ve çıkarım (inference) esnasında anlık kararları sadece bir sözlük arama (look-up) ve basit olasılık çarpım işlemleriyle alarak **~40-60 kat daha hızlı** sonuç üretmektedir (SKAB: 3.5 ms vs GRU 185.2 ms).
 
 ---
 
