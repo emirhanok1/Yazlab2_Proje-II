@@ -10,7 +10,7 @@ Projede modellerin performansı, gürültüye karşı dayanıklılığı (robust
 
 ## I. Özet (Abstract)
 
-Modern endüstriyel sistemler, IoT altyapıları ve siber-fiziksel sistemler (CPS) sürekli olarak çok boyutlu zaman serisi verileri üretmektedir. Bu sistemlerde meydana gelen ekipman arızaları veya siber saldırıların erken tespiti hayati öneme sahiptir. Bu çalışmada, gözetimli derin öğrenme modelleri (LSTM, GRU, 1D-CNN) ile yarı-gözetimli (eşik seçimli) sembolik temsil tabanlı olasılıksal otomata modeli karşılaştırılmıştır. SKAB (Water Pump Sensor Dataset) ve BATADAL (Water Distribution System Attacks) veri setleri kullanılarak gerçekleştirilen deneylerde, derin öğrenme modellerinin SKAB üzerinde yüksek F1 skoruna ($F1 \approx 0.84$) ulaştığı, buna karşın kararlarının arkasındaki fiziksel ve matematiksel nedenleri açıklayamadığı görülmüştür. Olasılıksal otomata modeli ise daha düşük bir genel performans sergilemekle birlikte ($F1 \approx 0.52$), her bir tahmin için geçiş olasılıklarına dayalı matematiksel açıklamalar üretebilmekte ve çıkarım aşamasında derin öğrenme modellerine kıyasla **~40 ila 60 kat daha hızlı** çalışmaktadır. İki yaklaşım arasındaki performans farkları Wilcoxon Signed-Rank ($p < 0.05$) ve McNemar ($p < 0.05$) testleri ile doğrulanmıştır. Gürültü analizi sonuçları, derin öğrenme modellerinin gürültülü ortamlarda ciddi performans kaybı yaşadığını, otomatların ise sembolik soyutlama yeteneği sayesinde daha dirençli kalabildiğini göstermiştir.
+Modern endüstriyel sistemler, IoT altyapıları ve siber-fiziksel sistemler (CPS) sürekli olarak çok boyutlu zaman serisi verileri üretmektedir. Bu sistemlerde meydana gelen ekipman arızaları veya siber saldırıların erken tespiti hayati öneme sahiptir. Bu çalışmada, gözetimli derin öğrenme modelleri (LSTM, GRU, 1D-CNN) ile yarı-gözetimli (eşik seçimli) sembolik temsil tabanlı olasılıksal otomata modeli karşılaştırılmıştır. SKAB (Water Pump Sensor Dataset) ve BATADAL (Water Distribution System Attacks) veri setleri kullanılarak gerçekleştirilen deneylerde, derin öğrenme modellerinin SKAB üzerinde yüksek F1 skoruna ($F1 \approx 0.84$) ulaştığı, buna karşın kararlarının arkasındaki fiziksel ve matematiksel nedenleri açıklayamadığı görülmüştür. Olasılıksal otomata modeli ise daha düşük bir genel performans sergilemekle birlikte ($F1 \approx 0.52$), her bir tahmin için geçiş olasılıklarına dayalı matematiksel açıklamalar üretebilmekte ve hem eğitim hem de çıkarım aşamasında derin öğrenme modellerine kıyasla çok daha hızlı çalışmaktadır (çıkarımda ~40-60 kat, eğitimde devasa fark). İki yaklaşım arasındaki performans farkları Wilcoxon Signed-Rank ($p < 0.05$) ve McNemar ($p < 0.05$) testleri ile doğrulanmıştır. Gürültü analizi sonuçları, derin öğrenme modellerinin gürültülü ortamlarda ciddi performans kaybı yaşadığını, otomatların ise sembolik soyutlama yeteneği sayesinde daha dirençli kalabildiğini göstermiştir.
 
 ---
 
@@ -84,7 +84,7 @@ Derin öğrenme modelleri PyTorch kütüphanesi kullanılarak Many-to-One mimari
 
 #### Sınıf Dengesizliği (Class Imbalance) ve Kayıp Fonksiyonu
 BATADAL veri setindeki aşırı sınıf dengesizliğini yönetmek amacıyla ikili çapraz entropi kayıp fonksiyonunda (`BCEWithLogitsLoss`) pozitif sınıfa (anomali) ait ağırlık `pos_weight` parametresi ile dengelenmiştir:
-$$\text{pos\_weight} = \frac{N_{\text{neg}}}{N_{\text{pos}}}$$
+`pos_weight = N_neg / N_pos`
 Eğitim sürecinde Early Stopping mekanizması kullanılmış; validation kaybı 5 epoch boyunca iyileşme göstermediğinde eğitim sonlandırılarak en iyi model ağırlıkları geri yüklenmiştir.
 
 ### 2. Olasılıksal Otomata Modeli (Probabilistic Automata)
@@ -101,7 +101,7 @@ graph LR
 
 #### A. PAA ve SAX Dönüşümleri
 * **PAA (Piecewise Aggregate Approximation):** Sürekli zaman serisini eşit aralıklı pencerelere bölerek her pencerenin ortalamasını alır.
-* **SAX (Symbolic Aggregate approximation):** PAA çıktısını sembolik harflere (örn: 'a', 'b', 'c') dönüştürür. Bölümleme sınırları (breakpoints), normal dağılım varsayımı yerine veri dağılımına daha uygun olan **Quantile (nicelik)** yöntemiyle belirlenmiştir. Bu breakpoint'ler yalnızca train kümesinden öğrenilerek dondurulur.
+* **SAX (Symbolic Aggregate approximation):** PAA çıktısını sembolik harflere (örn: 'a', 'b', 'c') dönüştürür. Bölümleme sınırları (breakpoints), normal dağılım varsayımı yerine veri dağılımına daha uygun olan **Quantile (nicelik)** yöntemiyle belirlenmiştir. SAX breakpoint'leri eğitim verisinden NumPy quantile (np.percentile ve np.digitize) ile hesaplanıp dondurulmuş, test aşamasına bu donmuş sınırlarla uygulanmıştır (leakage-free).
 * **Sliding Window:** Elde edilen sembol dizisi üzerinde $W$ uzunluğunda kayan pencereler oluşturulur. Her benzersiz sembol dizisi (örn: `aab`, `abc`) otomatadaki bir **durumu (state)** temsil eder.
 
 #### B. Geçiş Olasılıkları ve Add-k (Lidstone) Smoothing
